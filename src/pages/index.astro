@@ -1,0 +1,173 @@
+---
+import '../styles/global.css';
+
+const features = [
+  ['inbox', 'Bandeja omnicanal centralizada', 'El objetivo del piloto es reunir solicitudes web y, tras validar las APIs oficiales, conversaciones de Instagram y WhatsApp Business en un panel sin perder el hilo.', 'Integraciones de Meta sujetas a compatibilidad y aprobación.'],
+  ['file', 'La Ficha de Trabajo definitiva', 'Un registro asocia al cliente con su diseño, referencias, zona del cuerpo, artista, citas y estado de la señal. Una pieza puede conservar varias sesiones.', ''],
+  ['mobile', 'Optimizado para el estudio', '¿Entró alguien sin cita? El artista crea el brief delante del cliente desde móvil o tablet. El cliente no necesita cuenta ni instalar otra aplicación.', ''],
+  ['signature', 'Consentimiento digital', 'La hoja de ruta contempla formularios versionados y firma desde móvil o tablet, después de validar los requisitos legales de la primera región.', 'Función posterior al núcleo del piloto.'],
+];
+
+const plans = [
+  { id: 'artist', label: 'Artista', audience: 'Tatuadores independientes', price: '19€', cta: 'Unirme a la lista de espera', items: ['1 usuario / artista', 'Fichas ilimitadas durante el piloto', 'Solicitudes web integradas', 'Captura presencial en tablet o móvil', 'Agenda diaria integrada'] },
+  { id: 'studio', label: 'Estudio', audience: 'Estudios multiartista', price: '49€', cta: 'Reservar mi plaza piloto', recommended: true, items: ['Todo lo del Plan Artista', 'Espacios y permisos para varios artistas', 'Conexión omnicanal en la fase conectada', 'Registro manual y control de señas', 'Consentimientos tras validación legal'] },
+];
+---
+
+<!--
+THESIS: Inkendar convierte mensajes dispersos en una ficha de trabajo; rechaza el hero SaaS abstracto y el cliché gótico.
+OWN-WORLD: Negro tinta, papel frío y naranja incandescente; logo mecánico, fichas compactas, sellos y líneas de orden de trabajo.
+STORY: El visitante reconoce el caos, ve cómo se organiza, compara su plan y solicita una plaza piloto.
+FIRST VIEWPORT: Oferta y CTA a la izquierda; a la derecha, varios canales se ensamblan en una ficha real.
+FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demostración operativa en el hero.
+-->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="description" content="Inkendar reúne solicitudes, referencias, citas y señas en una única ficha de trabajo para estudios de tatuaje." />
+  <meta name="theme-color" content="#0B0B0F" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Inkendar — Todo tu estudio en una ficha</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <header class="site-header">
+    <a class="brand brand--logo" href="#top" aria-label="Inkendar, inicio"><img src="/inkendar-logo.png" width="1774" height="887" alt="Inkendar" /></a>
+    <nav aria-label="Navegación principal"><a href="#comparador">El cambio</a><a href="#funciones">Funciones</a><a href="#precios">Precios</a></nav>
+    <button class="button button--small button--accent" type="button" data-open-pilot data-plan="Estudio">Acceso piloto</button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero__copy">
+        <p class="kicker">Exclusivo para estudios de tatuaje y artistas independientes</p>
+        <h1>Tu web, tus mensajes de Instagram y tus citas. <span>Todo bajo control en una sola Ficha de Trabajo.</span></h1>
+        <p class="hero__lead">Deja de perder referencias entre WhatsApp, Instagram DMs y formularios web. Convierte cada consulta en una orden de trabajo organizada con su cita, señal y contexto. Hecho a medida para tatuadores.</p>
+        <div class="hero__actions">
+          <button class="button button--accent" type="button" data-open-pilot data-plan="Estudio">Solicitar acceso piloto <span aria-hidden="true">↗</span></button>
+          <a class="button button--outline" href="#funciones">Ver cómo funciona <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="pilot-proof"><span aria-hidden="true">10</span><p><strong>10 plazas en selección</strong><br />Beta privada · onboarding personal · aún sin autoservicio</p></div>
+      </div>
+
+      <div class="work-order-demo" aria-label="Vista previa ilustrativa de una ficha de trabajo">
+        <div class="demo-label"><span>Vista previa</span><span>Ficha #128</span></div>
+        <div class="source-stack" aria-hidden="true">
+          <div class="source"><b>IG</b><small>Idea + foto</small></div><div class="source"><b>WA</b><small>Medidas</small></div><div class="source"><b>WEB</b><small>Disponibilidad</small></div>
+        </div>
+        <article class="work-order">
+          <header><span><i></i> En revisión</span><strong>MAR · 17:30</strong></header>
+          <div class="client-row"><span class="avatar">LM</span><div><small>Cliente</small><strong>Lucía M.</strong></div><span class="tag">Instagram</span></div>
+          <div class="work-grid"><div><small>Zona</small><strong>Antebrazo interior</strong></div><div><small>Tamaño</small><strong>12–15 cm</strong></div><div><small>Estilo</small><strong>Fine line botánico</strong></div><div><small>Artista</small><strong>Ana R.</strong></div></div>
+          <div class="references"><figure class="ref ref--one"><img src="/tattoo-reference-botanical.jpg" width="640" height="853" alt="Referencia fotográfica de un tatuaje botánico fine line" decoding="async" /></figure><figure class="ref ref--two"><img src="/tattoo-reference-session.jpg" width="640" height="960" alt="Referencia fotográfica de una sesión de tatuaje en el brazo" decoding="async" /></figure><div><small>Referencias reales</small><strong>2 imágenes vinculadas</strong><em>Listas para la cita</em></div></div>
+          <footer><span><i></i>Señal pendiente</span><span>Brief 8/8 ✓</span></footer>
+        </article>
+        <p>Mensajes y formularios se convierten en contexto listo para trabajar.</p>
+      </div>
+    </section>
+
+    <div class="trust-strip"><span>Sin comisión por tatuaje</span><span>Móvil primero</span><span>Datos separados por estudio</span><span>Decisión artística humana</span></div>
+
+    <section class="comparison section" id="comparador" data-comparison>
+      <header class="section-heading">
+        <p>El antes y el después</p>
+        <h2>De rebuscar capturas a abrir una ficha con todo el contexto.</h2>
+        <div class="segmented"><button type="button" data-compare="chaos" aria-pressed="true">El caos diario</button><button type="button" data-compare="order" aria-pressed="false">Con Inkendar</button></div>
+      </header>
+      <div class="comparison-grid" data-state="chaos">
+        <article class="compare-panel chaos">
+          <div class="panel-tag"><span>×</span> El caos diario</div><h3>El desorden multitarea</h3>
+          <ul><li>La idea vive en un DM, la referencia llega por WhatsApp y el tamaño acaba en un bloc.</li><li>Buscas en la galería la imagen exacta del cliente de las tres.</li><li>Las señas dependen de comprobaciones manuales dispersas.</li><li>El cliente llega sin completar el consentimiento y aparece otra carpeta de papel.</li></ul>
+          <div class="chaos-scene" aria-hidden="true"><span>¿12 o 15 cm?</span><span>IMG_8241.jpg</span><span>SEÑAL ??</span></div>
+        </article>
+        <article class="compare-panel order">
+          <div class="panel-tag"><span>✓</span> Con Inkendar</div><h3>La Ficha de Trabajo única</h3>
+          <dl><div><dt>Contexto unificado</dt><dd>Brief, referencias, conversación, artista y citas permanecen en un caso.</dd></div><div><dt>Control de señas</dt><dd>Registra el depósito y protege la agenda sin procesar pagos en el sistema.</dd></div><div><dt>Firma en tablet o móvil</dt><dd>Consentimientos previstos tras validar normativa, versión y retención.</dd></div><div><dt>Vista “Hoy”</dt><dd>Cada artista ve sus citas con la información y las imágenes necesarias.</dd></div></dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="features section" id="funciones">
+      <header class="section-heading section-heading--split"><div><p>Una herramienta de estudio</p><h2>No otro calendario con un formulario pegado.</h2></div><p>El caso de tatuaje —no la cita— es la unidad principal. Cada pieza conserva todo su recorrido incluso cuando requiere varias sesiones.</p></header>
+      <div class="feature-grid">
+        {features.map(([icon, title, text, note], index) => <article class:list={['feature', index === 3 && 'feature--wide']}>
+          <div class="feature__icon" aria-hidden="true">
+            {icon === 'inbox' && <svg viewBox="0 0 32 32"><path d="M5 6h22v20H5zM5 18h6l2 3h6l2-3h6M10 11h12" /></svg>}
+            {icon === 'file' && <svg viewBox="0 0 32 32"><path d="M8 4h12l5 5v19H8zM19 4v6h6M12 15h9M12 20h9" /></svg>}
+            {icon === 'mobile' && <svg viewBox="0 0 32 32"><rect x="9" y="3" width="14" height="26" rx="2" /><path d="M13 7h6M14 25h4" /></svg>}
+            {icon === 'signature' && <svg viewBox="0 0 32 32"><path d="M5 25c6-8 7-13 9-13 3 0-1 9 2 9 2 0 3-4 5-4 2 0 0 4 2 4 1 0 2-1 4-3M5 28h22M20 9l4-4 3 3-4 4z" /></svg>}
+          </div><span class="feature__index">0{index + 1}</span><h3>{title}</h3><p>{text}</p>{note && <small>{note}</small>}
+        </article>)}
+      </div>
+      <div class="flow"><span>Mensaje o formulario</span><i>→</i><span>Ficha de trabajo</span><i>→</i><span>Artista asignado</span><i>→</i><span>Cita preparada</span></div>
+    </section>
+
+    <section class="pricing section" id="precios" data-pricing>
+      <header class="section-heading pricing-heading"><div><p>Precios de validación</p><h2>Elige el punto de partida de tu estudio.</h2></div><div class="segmented role"><button type="button" data-role="artist" aria-pressed="false">Trabajo por mi cuenta</button><button type="button" data-role="studio" aria-pressed="true">Somos un estudio</button></div></header>
+      <div class="plan-grid">
+        {plans.map((plan) => <article class:list={['plan', plan.recommended && 'plan--recommended']} data-plan-card={plan.id}>
+          {plan.recommended && <div class="recommended">Recomendado para el piloto</div>}
+          <header><div><h3>Plan {plan.label}</h3><p>{plan.audience}</p></div><div class="price"><strong>{plan.price}</strong><span>/ mes</span></div></header>
+          <ul>{plan.items.map(item => <li><span>✓</span>{item}</li>)}</ul>
+          <button class:list={['button', plan.recommended ? 'button--accent' : 'button--light']} type="button" data-open-pilot data-plan={plan.label}>{plan.cta} <span>↗</span></button>
+          {plan.recommended && <small class="founder-offer">50% sobre el precio objetivo mientras mantengas la suscripción y los límites acordados.</small>}
+        </article>)}
+      </div>
+      <p class="pricing-note">Son hipótesis para medir disposición de pago, no una oferta de autoservicio activa. La beta se acuerda por escrito. El precio fundador puede mantenerse con suscripción continua y dentro de los límites del piloto; los costes de terceros se mostrarán aparte.</p>
+    </section>
+
+    <section class="maker section"><div class="maker__mark" aria-hidden="true">IN<br />CA<br />NDI</div><div><p>Construido cerca del problema</p><h2>Software real para el trabajo entre el primer mensaje y la aguja.</h2></div><p>Inkendar es un producto de <strong>Incandi</strong>, desarrollado de forma nativa por Marcos Álvarez, Full Stack Developer enfocado en construir software robusto que resuelva dolores operativos reales. Sin plantillas pesadas: una herramienta hecha para el ritmo diario del estudio.</p></section>
+
+    <section class="closing section"><div><p>Fase piloto · selección abierta</p><h2>Tu próximo tatuaje merece una ficha. Tu estudio también.</h2></div><button class="button button--light" type="button" data-open-pilot data-plan="Estudio">Solicitar una plaza <span>↗</span></button></section>
+  </main>
+
+  <footer class="footer"><a class="brand brand--logo" href="#top" aria-label="Inkendar, volver arriba"><img src="/inkendar-logo.png" width="1774" height="887" alt="Inkendar" loading="lazy" /></a><p>Beta privada · © 2026 Inkendar</p><a href="mailto:hola@inkendar.es">hola@inkendar.es</a></footer>
+
+  <dialog class="pilot-dialog" data-pilot-dialog aria-labelledby="pilot-title">
+    <div class="dialog-shell"><button class="dialog-close" type="button" data-close-dialog aria-label="Cerrar formulario">×</button>
+      <div class="dialog-intro"><span class="dialog-stamp">10 plazas</span><p>Acceso temprano</p><h2 id="pilot-title">Únete a la fase piloto exclusiva.</h2><p>Seleccionamos únicamente 10 estudios para refinar la versión final, con el objetivo de responder en menos de 24 horas laborables.</p><ul><li>Onboarding personal</li><li>Participación voluntaria</li><li>Precio fundador por escrito</li></ul></div>
+      <form class="pilot-form" data-pilot-form novalidate><input type="hidden" name="plan" value="Estudio" data-plan-input /><div class="selected-plan">Interés: <strong data-plan-label>Plan Estudio</strong></div>
+        <label><span>Nombre completo</span><input name="name" autocomplete="name" required placeholder="Artista o administrador" aria-describedby="name-error" /><small id="name-error">Escribe tu nombre para continuar.</small></label>
+        <label><span>Nombre del estudio</span><input name="studio" autocomplete="organization" required placeholder="Ej. Blackbird Tattoo" aria-describedby="studio-error" /><small id="studio-error">Indica el estudio o tu nombre profesional.</small></label>
+        <label><span>Correo de contacto</span><input type="email" name="email" autocomplete="email" required placeholder="tu@estudio.com" aria-describedby="email-error" /><small id="email-error">Introduce un correo válido.</small></label>
+        <label><span>Instagram del estudio</span><input name="instagram" required placeholder="@tuestudio" pattern="^@?[A-Za-z0-9._]{2,30}$" aria-describedby="instagram-error" /><small id="instagram-error">Usa el formato @tuestudio.</small></label>
+        <div class="field-pair"><label><span>Ciudad</span><input name="city" autocomplete="address-level2" required placeholder="Tu ciudad" aria-describedby="city-error" /><small id="city-error">Indica tu ciudad.</small></label><label><span>Número de artistas</span><input type="number" name="artists" min="1" max="50" required placeholder="Ej. 4" aria-describedby="artists-error" /><small id="artists-error">Indica cuántos artistas sois.</small></label></div>
+        <label><span>Canal principal actual</span><select name="channel" required aria-describedby="channel-error"><option value="">Selecciona uno</option><option>Instagram</option><option>WhatsApp Business</option><option>Formulario web</option><option>Presencial / teléfono</option></select><small id="channel-error">Selecciona vuestro canal principal.</small></label>
+        <label class="consent-row"><input type="checkbox" name="consent" required /><span>Acepto que Inkendar use estos datos para responder a mi solicitud piloto.</span></label>
+        <button class="button button--accent" type="submit"><span data-submit-label>Enviar solicitud prioritaria</span><span>↗</span></button>
+      </form>
+      <div class="form-success" data-form-success role="status" aria-live="polite" hidden><span>✓</span><p>Solicitud registrada</p><h3>Ya estás en la lista prioritaria.</h3><p>Esta demo no envía datos todavía. En la versión conectada recibirías confirmación por correo.</p><button class="button button--light" type="button" data-close-dialog>Cerrar</button></div>
+    </div>
+  </dialog>
+
+  <script>
+    const dialog = document.querySelector('[data-pilot-dialog]');
+    const form = document.querySelector('[data-pilot-form]');
+    const success = document.querySelector('[data-form-success]');
+    document.querySelectorAll('[data-open-pilot]').forEach(trigger => trigger.addEventListener('click', () => {
+      if (!(dialog instanceof HTMLDialogElement)) return;
+      const plan = trigger.getAttribute('data-plan') || 'Estudio';
+      const input = dialog.querySelector('[data-plan-input]'); const label = dialog.querySelector('[data-plan-label]');
+      if (input instanceof HTMLInputElement) input.value = plan; if (label) label.textContent = `Plan ${plan}`;
+      form?.removeAttribute('hidden'); if (success instanceof HTMLElement) success.hidden = true; dialog.showModal();
+    }));
+    document.querySelectorAll('[data-close-dialog]').forEach(button => button.addEventListener('click', () => dialog instanceof HTMLDialogElement && dialog.close()));
+    dialog?.addEventListener('click', event => { if (event.target === dialog && dialog instanceof HTMLDialogElement) dialog.close(); });
+    form?.addEventListener('submit', event => {
+      event.preventDefault(); if (!(form instanceof HTMLFormElement)) return; form.classList.add('was-validated'); form.querySelectorAll('[required]').forEach(field => field.setAttribute('aria-invalid', String((field instanceof HTMLInputElement || field instanceof HTMLSelectElement) && !field.checkValidity())));
+      if (!form.checkValidity()) { const invalid = form.querySelector(':invalid'); if (invalid instanceof HTMLElement) invalid.focus(); return; }
+      const button = form.querySelector('button[type="submit"]'); const label = form.querySelector('[data-submit-label]');
+      if (button instanceof HTMLButtonElement) button.disabled = true; if (label) label.textContent = 'Registrando…';
+      window.setTimeout(() => { form.hidden = true; if (success instanceof HTMLElement) { success.hidden = false; success.querySelector('button')?.focus(); } form.reset(); form.classList.remove('was-validated'); form.querySelectorAll('[aria-invalid]').forEach(field => field.removeAttribute('aria-invalid')); if (button instanceof HTMLButtonElement) button.disabled = false; if (label) label.textContent = 'Enviar solicitud prioritaria'; }, 650);
+    });
+    const comparison = document.querySelector('[data-comparison]');
+    form?.querySelectorAll('input, select').forEach(field => field.addEventListener('input', () => field.removeAttribute('aria-invalid')));
+    comparison?.querySelectorAll('[data-compare]').forEach(button => button.addEventListener('click', () => { const state = button.getAttribute('data-compare') || 'chaos'; comparison.querySelector('.comparison-grid')?.setAttribute('data-state', state); comparison.querySelectorAll('[data-compare]').forEach(item => item.setAttribute('aria-pressed', String(item === button))); }));
+    const pricing = document.querySelector('[data-pricing]');
+    pricing?.querySelectorAll('[data-role]').forEach(button => button.addEventListener('click', () => { const role = button.getAttribute('data-role'); pricing.querySelectorAll('[data-role]').forEach(item => item.setAttribute('aria-pressed', String(item === button))); pricing.querySelectorAll('[data-plan-card]').forEach(card => card.classList.toggle('is-selected', card.getAttribute('data-plan-card') === role)); }));
+    const demo = document.querySelector('.work-order-demo'); if (demo) new IntersectionObserver(([entry]) => entry?.isIntersecting && entry.target.classList.add('is-assembled'), { threshold: .3 }).observe(demo);
+  </script>
+</body>
+</html>
