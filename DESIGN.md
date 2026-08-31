@@ -1,6 +1,6 @@
 # Inkendar — sistema visual
 
-_Última actualización: 2026-08-30_
+_Última actualización: 2026-08-31_
 
 ## Tesis
 
@@ -23,5 +23,6 @@ Inkendar se presenta como la ficha de trabajo definitiva de un estudio de tatuaj
 ## Interacción y voz
 
 - Foco visible; estados comunicados con texto e iconografía, no solo color.
+- Selector de idioma ES/EN visible en la cabecera, sin banderas; español por defecto y preferencia persistente en el navegador.
 - Una animación principal ensambla la ficha del hero y respeta movimiento reducido.
 - Voz directa y conocedora del estudio. Las vistas no funcionales se marcan como vista previa y las capacidades condicionadas se explican.

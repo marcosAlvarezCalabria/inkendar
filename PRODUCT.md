@@ -63,6 +63,7 @@ Decisiones comerciales confirmadas para la landing de validación:
 - nombre público utilizado en la validación: `Inkendar`; la comprobación de dominio y marca continúa pendiente;
 - hipótesis de precio visibles: 19 EUR/mes para artista independiente y 49 EUR/mes para estudio;
 - la landing ofrece una selección piloto limitada y deja claro que la beta todavía no es autoservicio;
+- la landing se ofrece en español e inglés mediante un selector explícito que conserva la preferencia del visitante;
 - identidad visual oscura, móvil primero, con logo mecánico y naranja corporativo `#FF7000`; permanece separada de Incandi, que aparece únicamente como equipo desarrollador.
 
 Decisiones abiertas:
