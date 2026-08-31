@@ -9,15 +9,15 @@ const features = [
 ];
 
 const plans = [
-  { id: 'artist', label: 'Artista', audience: 'Tatuadores independientes', price: '19€', cta: 'Unirme a la lista de espera', items: ['1 usuario / artista', 'Fichas ilimitadas durante el piloto', 'Solicitudes web integradas', 'Captura presencial en tablet o móvil', 'Agenda diaria integrada'] },
-  { id: 'studio', label: 'Estudio', audience: 'Estudios multiartista', price: '49€', cta: 'Reservar mi plaza piloto', recommended: true, items: ['Todo lo del Plan Artista', 'Espacios y permisos para varios artistas', 'Conexión omnicanal en la fase conectada', 'Registro manual y control de señas', 'Consentimientos tras validación legal'] },
+  { id: 'artist', label: 'Artista', audience: 'Tatuadores independientes', cta: 'Consultar Plan Artista', items: ['1 usuario / artista', 'Fichas ilimitadas durante el piloto', 'Solicitudes web integradas', 'Captura presencial en tablet o móvil', 'Agenda diaria integrada'] },
+  { id: 'studio', label: 'Estudio', audience: 'Estudios multiartista', cta: 'Consultar Plan Estudio', recommended: true, items: ['Todo lo del Plan Artista', 'Espacios y permisos para varios artistas', 'Conexión omnicanal en la fase conectada', 'Registro manual y control de señas', 'Consentimientos tras validación legal'] },
 ];
 ---
 
 <!--
 THESIS: Inkendar convierte mensajes dispersos en una ficha de trabajo; rechaza el hero SaaS abstracto y el cliché gótico.
 OWN-WORLD: Negro tinta, papel frío y naranja incandescente; logo mecánico, fichas compactas, sellos y líneas de orden de trabajo.
-STORY: El visitante reconoce el caos, ve cómo se organiza, compara su plan y solicita una plaza piloto.
+STORY: El visitante sigue una consulta desde el canal del cliente hasta la respuesta del estudio, compara su plan y solicita una plaza piloto.
 FIRST VIEWPORT: Oferta y CTA a la izquierda; a la derecha, varios canales se ensamblan en una ficha real.
 FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demostración operativa en el hero.
 -->
@@ -35,7 +35,7 @@ FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demos
   <a class="skip-link" href="#main" data-i18n="skip.content">Saltar al contenido</a>
   <header class="site-header">
     <a class="brand brand--logo" href="#top" aria-label="Inkendar, inicio" data-i18n-aria="header.home"><img src="/inkendar-logo.png" width="1774" height="887" alt="Inkendar" /></a>
-    <nav aria-label="Navegación principal" data-i18n-aria="nav.label"><a href="#comparador" data-i18n="nav.change">El cambio</a><a href="#funciones" data-i18n="nav.features">Funciones</a><a href="#precios" data-i18n="nav.pricing">Precios</a></nav>
+    <nav aria-label="Navegación principal" data-i18n-aria="nav.label"><a href="#recorrido" data-i18n="nav.change">Recorrido</a><a href="#funciones" data-i18n="nav.features">Funciones</a><a href="#precios" data-i18n="nav.pricing">Planes</a></nav>
     <div class="header-actions">
       <div class="language-switch" role="group" aria-label="Idioma / Language">
         <button type="button" data-language="es" aria-pressed="true">ES</button><button type="button" data-language="en" aria-pressed="false">EN</button>
@@ -76,6 +76,90 @@ FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demos
 
     <div class="trust-strip"><span data-i18n="trust.artist">Sin comisión por tatuaje</span><span data-i18n="trust.mobile">Móvil primero</span><span data-i18n="trust.setup">Datos separados por estudio</span><span data-i18n="trust.beta">Decisión artística humana</span></div>
 
+    <section class="story section" id="recorrido" aria-labelledby="story-title">
+      <header class="story__intro">
+        <p data-i18n="story.eyebrow">Una consulta, de punta a punta</p>
+        <h2 id="story-title" data-i18n="story.title">Una idea entra. El estudio sabe qué hacer después.</h2>
+        <p class="story__lead" data-i18n="story.lead">Cuatro escenas muestran cómo el contexto viaja desde el primer mensaje hasta una respuesta clara, sin quitar al estudio el control de la decisión.</p>
+        <div class="story__channels" aria-label="Canales de entrada: web, Instagram y WhatsApp Business" data-i18n-aria="story.channels.aria"><span>WEB</span><span>INSTAGRAM</span><span>WHATSAPP</span></div>
+        <p class="story__connected" data-i18n="story.connected">Fase conectada: Instagram y WhatsApp dependen de compatibilidad y aprobación de las APIs oficiales.</p>
+        <p class="story__format" data-i18n="story.format">Formato 4:5 · preparado para la web y un carrusel social</p>
+        <ol class="story__index" aria-label="Capítulos del recorrido" data-i18n-aria="story.index.aria">
+          <li><a href="#story-1"><span>01</span><em data-i18n="story.index.1">Entrada</em></a></li>
+          <li><a href="#story-2"><span>02</span><em data-i18n="story.index.2">Ficha</em></a></li>
+          <li><a href="#story-3"><span>03</span><em data-i18n="story.index.3">Decisión</em></a></li>
+          <li><a href="#story-4"><span>04</span><em data-i18n="story.index.4">Respuesta</em></a></li>
+        </ol>
+      </header>
+
+      <div class="story__track">
+        <article class="story-scene" id="story-1">
+          <figure>
+            <img src="/story/01-client-enquiry.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="Cliente revisando una referencia botánica desde su teléfono antes de enviar una consulta" data-i18n-alt="story.scene1.alt" />
+            <span class="story-scene__step" aria-hidden="true">01</span>
+            <div class="story-scene__source" aria-hidden="true"><span data-i18n="story.scene1.web">WEB · PILOTO</span><span data-i18n="story.scene1.connected">IG + WA · FASE CONECTADA</span></div>
+            <figcaption data-i18n="story.scene1.subtitle">La consulta nace en el canal que el cliente ya utiliza.</figcaption>
+          </figure>
+          <div class="story-scene__copy">
+            <p data-i18n="story.scene1.actor">Cliente</p>
+            <h3 data-i18n="story.scene1.title">Empieza donde ya está.</h3>
+            <p data-i18n="story.scene1.body">En el piloto, el formulario web inicia el recorrido. Instagram y WhatsApp se incorporan en la fase conectada, sin obligar al cliente a aprender otra herramienta.</p>
+            <strong data-i18n="story.scene1.result">Entra la intención</strong>
+          </div>
+        </article>
+
+        <article class="story-scene" id="story-2">
+          <figure>
+            <img src="/story/02-unified-job-sheet.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="Responsable de estudio revisando una ficha de trabajo unificada en una tableta" data-i18n-alt="story.scene2.alt" />
+            <span class="story-scene__step" aria-hidden="true">02</span>
+            <div class="story-scene__source" aria-hidden="true"><span>INKENDAR</span><span class="story-scene__concept" data-i18n="story.concept">VISTA CONCEPTUAL</span></div>
+            <figcaption data-i18n="story.scene2.subtitle">Inkendar reúne el contexto en una sola Ficha de Trabajo.</figcaption>
+          </figure>
+          <div class="story-scene__copy">
+            <p data-i18n="story.scene2.actor">Responsable del estudio</p>
+            <h3 data-i18n="story.scene2.title">El contexto deja de vivir en capturas.</h3>
+            <p data-i18n="story.scene2.body">Conversación, imágenes, zona, tamaño y artista preferido se reúnen en una ficha. Un saludo no se convierte solo en trabajo: el estudio revisa primero.</p>
+            <strong data-i18n="story.scene2.result">Nace la ficha</strong>
+          </div>
+        </article>
+
+        <article class="story-scene" id="story-3">
+          <figure>
+            <img src="/story/03-artist-action.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="Tatuador preparando la cita con la referencia y la ficha de trabajo" data-i18n-alt="story.scene3.alt" />
+            <span class="story-scene__step" aria-hidden="true">03</span>
+            <div class="story-scene__source" aria-hidden="true"><span data-i18n="story.scene3.badge">DECISIÓN HUMANA</span></div>
+            <figcaption data-i18n="story.scene3.subtitle">El estudio completa, asigna y prepara la cita.</figcaption>
+          </figure>
+          <div class="story-scene__copy">
+            <p data-i18n="story.scene3.actor">Artista asignado</p>
+            <h3 data-i18n="story.scene3.title">El estudio decide. Inkendar mantiene el orden.</h3>
+            <p data-i18n="story.scene3.body">Se completa lo que falta, se asigna el artista y se prepara la cita con la referencia correcta. La decisión artística sigue siendo humana.</p>
+            <strong data-i18n="story.scene3.result">Se prepara la cita</strong>
+          </div>
+        </article>
+
+        <article class="story-scene" id="story-4">
+          <figure>
+            <img src="/story/04-channel-response.webp" width="1080" height="1350" loading="lazy" decoding="async" alt="Responsable de estudio enviando una respuesta desde el panel al canal del cliente" data-i18n-alt="story.scene4.alt" />
+            <span class="story-scene__step" aria-hidden="true">04</span>
+            <div class="story-scene__source story-scene__source--phase"><span class="story-scene__concept" data-i18n="story.concept">VISTA CONCEPTUAL</span><span data-i18n="story.scene4.badge">FASE CONECTADA</span></div>
+            <figcaption data-i18n="story.scene4.subtitle">La respuesta vuelve al canal original con el contexto intacto.</figcaption>
+          </figure>
+          <div class="story-scene__copy">
+            <p data-i18n="story.scene4.actor">Canal del cliente</p>
+            <h3 data-i18n="story.scene4.title">La respuesta vuelve con todo el contexto.</h3>
+            <p data-i18n="story.scene4.body">Cuando la integración esté activa, el estudio responderá en el canal original; las solicitudes web seguirán el canal acordado. Nada se publica automáticamente.</p>
+            <strong data-i18n="story.scene4.result">Vuelve una respuesta clara</strong>
+          </div>
+        </article>
+      </div>
+      <div class="story__controls" data-story-controls>
+        <button type="button" data-story-prev aria-label="Escena anterior" data-i18n-aria="story.controls.prev" disabled>←</button>
+        <p aria-live="polite"><span data-i18n="story.controls.scene">Escena</span> <strong data-story-current>1</strong> <span data-i18n="story.controls.of">de</span> 4</p>
+        <button type="button" data-story-next aria-label="Escena siguiente" data-i18n-aria="story.controls.next">→</button>
+      </div>
+    </section>
+
     <section class="comparison section" id="comparador" data-comparison>
       <header class="section-heading">
         <p data-i18n="compare.eyebrow">El antes y el después</p>
@@ -111,17 +195,16 @@ FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demos
     </section>
 
     <section class="pricing section" id="precios" data-pricing>
-      <header class="section-heading pricing-heading"><div><p data-i18n="pricing.eyebrow">Precios de validación</p><h2 data-i18n="pricing.title">Elige el punto de partida de tu estudio.</h2></div><div class="segmented role"><button type="button" data-role="artist" aria-pressed="false" data-i18n="pricing.role.artist">Trabajo por mi cuenta</button><button type="button" data-role="studio" aria-pressed="true" data-i18n="pricing.role.studio">Somos un estudio</button></div></header>
+      <header class="section-heading pricing-heading"><div><p data-i18n="pricing.eyebrow">Planes del piloto</p><h2 data-i18n="pricing.title">Cuéntanos cómo trabajáis y te orientamos.</h2></div><div class="segmented role"><button type="button" data-role="artist" aria-pressed="false" data-i18n="pricing.role.artist">Trabajo por mi cuenta</button><button type="button" data-role="studio" aria-pressed="true" data-i18n="pricing.role.studio">Somos un estudio</button></div></header>
       <div class="plan-grid">
         {plans.map((plan) => <article class:list={['plan', plan.recommended && 'plan--recommended']} data-plan-card={plan.id}>
           {plan.recommended && <div class="recommended" data-i18n="plans.recommended">Recomendado para el piloto</div>}
-          <header><div><h3 data-i18n={'plans.' + plan.id + '.name'}>Plan {plan.label}</h3><p data-i18n={'plans.' + plan.id + '.audience'}>{plan.audience}</p></div><div class="price"><strong>{plan.price}</strong><span data-i18n={'plans.' + plan.id + '.period'}>/ mes</span></div></header>
+          <header><div><h3 data-i18n={'plans.' + plan.id + '.name'}>Plan {plan.label}</h3><p data-i18n={'plans.' + plan.id + '.audience'}>{plan.audience}</p></div><div class="plan-consult"><strong data-i18n="pricing.consult">Consultar</strong><span data-i18n="pricing.pending">Precio por confirmar</span></div></header>
           <ul>{plan.items.map((item, itemIndex) => <li><span>✓</span><span data-i18n={'plans.' + plan.id + '.item' + itemIndex}>{item}</span></li>)}</ul>
           <button class:list={['button', plan.recommended ? 'button--accent' : 'button--light']} type="button" data-open-pilot data-plan={plan.id}><span data-i18n={'plans.' + plan.id + '.cta'}>{plan.cta}</span> <span>↗</span></button>
-          {plan.recommended && <small class="founder-offer" data-i18n="pricing.founder">50% sobre el precio objetivo mientras mantengas la suscripción y los límites acordados.</small>}
         </article>)}
       </div>
-      <p class="pricing-note" data-i18n="pricing.note">Son hipótesis para medir disposición de pago, no una oferta de autoservicio activa. La beta se acuerda por escrito. El precio fundador puede mantenerse con suscripción continua y dentro de los límites del piloto; los costes de terceros se mostrarán aparte.</p>
+      <p class="pricing-note" data-i18n="pricing.note">Todavía no hemos cerrado los precios. Cuéntanos cómo funciona tu estudio y te explicaremos el alcance del piloto sin compromiso.</p>
     </section>
 
     <section class="maker section"><div class="maker__mark" aria-hidden="true">IN<br />CA<br />NDI</div><div><p data-i18n="maker.eyebrow">Construido cerca del problema</p><h2 data-i18n="maker.title">Software real para el trabajo entre el primer mensaje y la aguja.</h2></div><p><span data-i18n="maker.prefix">Inkendar es un producto de</span> <strong>Incandi</strong>, <span data-i18n="maker.suffix">desarrollado de forma nativa por Marcos Álvarez, Full Stack Developer enfocado en construir software robusto que resuelva dolores operativos reales. Sin plantillas pesadas: una herramienta hecha para el ritmo diario del estudio.</span></p></section>
@@ -133,7 +216,7 @@ FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demos
 
   <dialog class="pilot-dialog" data-pilot-dialog aria-labelledby="pilot-title">
     <div class="dialog-shell"><button class="dialog-close" type="button" data-close-dialog aria-label="Cerrar formulario" data-i18n-aria="modal.close">×</button>
-      <div class="dialog-intro"><span class="dialog-stamp" data-i18n="modal.slots">10 plazas</span><p data-i18n="modal.eyebrow">Acceso temprano</p><h2 id="pilot-title" data-i18n="modal.title">Únete a la fase piloto exclusiva.</h2><p data-i18n="modal.description">Seleccionamos únicamente 10 estudios para refinar la versión final, con el objetivo de responder en menos de 24 horas laborables.</p><ul><li data-i18n="modal.bullet0">Onboarding personal</li><li data-i18n="modal.bullet1">Participación voluntaria</li><li data-i18n="modal.bullet2">Precio fundador por escrito</li></ul></div>
+      <div class="dialog-intro"><span class="dialog-stamp" data-i18n="modal.slots">10 plazas</span><p data-i18n="modal.eyebrow">Acceso temprano</p><h2 id="pilot-title" data-i18n="modal.title">Únete a la fase piloto exclusiva.</h2><p data-i18n="modal.description">Seleccionamos únicamente 10 estudios para refinar la versión final, con el objetivo de responder en menos de 24 horas laborables.</p><ul><li data-i18n="modal.bullet0">Onboarding personal</li><li data-i18n="modal.bullet1">Participación voluntaria</li><li data-i18n="modal.bullet2">Información del piloto sin compromiso</li></ul></div>
       <form class="pilot-form" data-pilot-form novalidate><input type="hidden" name="plan" value="studio" data-plan-input /><div class="selected-plan"><span data-i18n="modal.interest">Interés:</span> <strong data-plan-label>Plan Estudio</strong></div>
         <label><span data-i18n="modal.name">Nombre completo</span><input name="name" autocomplete="name" required placeholder="Artista o administrador" data-i18n-placeholder="modal.name.placeholder" aria-describedby="name-error" /><small id="name-error" data-i18n="modal.name.error">Escribe tu nombre para continuar.</small></label>
         <label><span data-i18n="modal.studio">Nombre del estudio</span><input name="studio" autocomplete="organization" required placeholder="Ej. Blackbird Tattoo" data-i18n-placeholder="modal.studio.placeholder" aria-describedby="studio-error" /><small id="studio-error" data-i18n="modal.studio.error">Indica el estudio o tu nombre profesional.</small></label>
@@ -178,6 +261,36 @@ FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demos
     });
     const initialPlanLabel = dialog?.querySelector('[data-plan-label]');
     if (initialPlanLabel) initialPlanLabel.textContent = translate('plans.studio.name', 'Plan Estudio');
+    const storyTrack = document.querySelector<HTMLElement>('.story__track');
+    const storyScenes = [...document.querySelectorAll<HTMLElement>('.story-scene')];
+    const storyCurrent = document.querySelector<HTMLElement>('[data-story-current]');
+    const storyPrevious = document.querySelector<HTMLButtonElement>('[data-story-prev]');
+    const storyNext = document.querySelector<HTMLButtonElement>('[data-story-next]');
+    let activeStoryIndex = 0;
+    let storyScrollFrame = 0;
+    const updateStoryControls = (index: number, shouldScroll = false) => {
+      activeStoryIndex = Math.max(0, Math.min(index, storyScenes.length - 1));
+      if (storyCurrent) storyCurrent.textContent = String(activeStoryIndex + 1);
+      if (storyPrevious) storyPrevious.disabled = activeStoryIndex === 0;
+      if (storyNext) storyNext.disabled = activeStoryIndex === storyScenes.length - 1;
+      if (shouldScroll && storyTrack) {
+        const trackBox = storyTrack.getBoundingClientRect();
+        const sceneBox = storyScenes[activeStoryIndex]?.getBoundingClientRect();
+        if (sceneBox) storyTrack.scrollTo({ left: storyTrack.scrollLeft + sceneBox.left - trackBox.left - 16, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      }
+    };
+    storyPrevious?.addEventListener('click', () => updateStoryControls(activeStoryIndex - 1, true));
+    storyNext?.addEventListener('click', () => updateStoryControls(activeStoryIndex + 1, true));
+    storyTrack?.addEventListener('scroll', () => {
+      cancelAnimationFrame(storyScrollFrame);
+      storyScrollFrame = requestAnimationFrame(() => {
+        const trackBox = storyTrack.getBoundingClientRect();
+        const trackCenter = trackBox.left + trackBox.width / 2;
+        const nearest = storyScenes.reduce((best, scene, index) => Math.abs(scene.getBoundingClientRect().left + scene.offsetWidth / 2 - trackCenter) < best.distance ? { index, distance: Math.abs(scene.getBoundingClientRect().left + scene.offsetWidth / 2 - trackCenter) } : best, { index: 0, distance: Number.POSITIVE_INFINITY });
+        updateStoryControls(nearest.index);
+      });
+    }, { passive: true });
+    updateStoryControls(0);
     const comparison = document.querySelector('[data-comparison]');
     form?.querySelectorAll('input, select').forEach(field => field.addEventListener('input', () => field.removeAttribute('aria-invalid')));
     comparison?.querySelectorAll('[data-compare]').forEach(button => button.addEventListener('click', () => { const state = button.getAttribute('data-compare') || 'chaos'; comparison.querySelector('.comparison-grid')?.setAttribute('data-state', state); comparison.querySelectorAll('[data-compare]').forEach(item => item.setAttribute('aria-pressed', String(item === button))); }));

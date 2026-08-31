@@ -18,6 +18,7 @@ Inkendar se presenta como la ficha de trabajo definitiva de un estudio de tatuaj
 
 - Titulares compactos y secciones que alternan demostración densa con respiración amplia.
 - La primera pantalla demuestra el recorrido de una consulta hasta una ficha.
+- Los procesos se cuentan con fotografía editorial vertical 4:5, rótulos en HTML y secuencias que alternan imagen y explicación; nunca se incrusta copy funcional dentro del bitmap.
 - En móvil, comparaciones y planes se convierten en controles de selección claros.
 
 ## Interacción y voz
