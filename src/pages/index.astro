@@ -2,15 +2,15 @@
 import '../styles/global.css';
 
 const features = [
-  ['inbox', 'Bandeja omnicanal centralizada', 'El objetivo del piloto es reunir solicitudes web y, tras validar las APIs oficiales, conversaciones de Instagram y WhatsApp Business en un panel sin perder el hilo.', 'Integraciones de Meta sujetas a compatibilidad y aprobación.'],
-  ['file', 'La Ficha de Trabajo definitiva', 'Un registro asocia al cliente con su diseño, referencias, zona del cuerpo, artista, citas y estado de la señal. Una pieza puede conservar varias sesiones.', ''],
-  ['mobile', 'Optimizado para el estudio', '¿Entró alguien sin cita? El artista crea el brief delante del cliente desde móvil o tablet. El cliente no necesita cuenta ni instalar otra aplicación.', ''],
-  ['signature', 'Consentimiento digital', 'La hoja de ruta contempla formularios versionados y firma desde móvil o tablet, después de validar los requisitos legales de la primera región.', 'Función posterior al núcleo del piloto.'],
+  ['inbox', 'Solicitudes en orden', 'Las consultas de la web llegan al panel y pueden convertirse en trabajos organizados sin copiar la información a mano.', 'Instagram y WhatsApp se añadirán después de validar sus integraciones oficiales.'],
+  ['file', 'Una Ficha de Trabajo completa', 'Brief, referencias, zona del cuerpo, tamaño, artista, citas y estado de la señal permanecen juntos durante todo el trabajo.', ''],
+  ['mobile', 'Captura rápida en el estudio', 'Si el cliente está delante, el equipo puede registrar la idea y las referencias desde móvil o tablet. El cliente no necesita instalar nada.', ''],
+  ['today', 'La vista “Hoy” de cada artista', 'Cada artista ve sus citas del día con la información y las imágenes necesarias para preparar el trabajo.', ''],
 ];
 
 const plans = [
-  { id: 'artist', label: 'Artista', audience: 'Tatuadores independientes', cta: 'Consultar Plan Artista', items: ['1 usuario / artista', 'Fichas ilimitadas durante el piloto', 'Solicitudes web integradas', 'Captura presencial en tablet o móvil', 'Agenda diaria integrada'] },
-  { id: 'studio', label: 'Estudio', audience: 'Estudios multiartista', cta: 'Consultar Plan Estudio', recommended: true, items: ['Todo lo del Plan Artista', 'Espacios y permisos para varios artistas', 'Conexión omnicanal en la fase conectada', 'Registro manual y control de señas', 'Consentimientos tras validación legal'] },
+  { id: 'artist', label: 'Artista', audience: 'Tatuadores independientes', cta: 'Consultar Plan Artista', items: ['1 usuario / artista', 'Solicitudes web integradas', 'Fichas, citas y control de señas', 'Captura presencial en móvil o tablet', 'Vista diaria del artista'] },
+  { id: 'studio', label: 'Estudio', audience: 'Estudios multiartista', cta: 'Consultar Plan Estudio', recommended: true, items: ['Todo lo del Plan Artista', 'Espacios y permisos para varios artistas', 'Asignación de trabajos y citas', 'Flujo compartido y control de señas', 'Canales conectados tras su validación'] },
 ];
 ---
 
@@ -49,8 +49,8 @@ FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demos
     <section class="hero" id="top">
       <div class="hero__copy">
         <p class="kicker" data-i18n="hero.kicker">Exclusivo para estudios de tatuaje y artistas independientes</p>
-        <h1><span class="hero-title-main" data-i18n="hero.title.main">Tu web, tus mensajes de Instagram y tus citas.</span> <span data-i18n="hero.title.accent">Todo bajo control en una sola Ficha de Trabajo.</span></h1>
-        <p class="hero__lead" data-i18n="hero.lead">Deja de perder referencias entre WhatsApp, Instagram DMs y formularios web. Convierte cada consulta en una orden de trabajo organizada con su cita, señal y contexto. Hecho a medida para tatuadores.</p>
+        <h1><span class="hero-title-main" data-i18n="hero.title.main">Pon orden al caos de mensajes, citas y referencias.</span> <span data-i18n="hero.title.accent">Todo tu estudio en una sola Ficha de Trabajo.</span></h1>
+        <p class="hero__lead" data-i18n="hero.lead">Inkendar convierte cada solicitud en una Ficha de Trabajo con el brief, las imágenes, el artista, la cita y la señal en un solo lugar. El piloto comienza con solicitudes web y captura en el estudio.</p>
         <div class="hero__actions">
           <button class="button button--accent" type="button" data-open-pilot data-plan="studio"><span data-i18n="hero.primary">Solicitar acceso piloto</span> <span aria-hidden="true">↗</span></button>
           <a class="button button--outline" href="#funciones"><span data-i18n="hero.secondary">Ver cómo funciona</span> <span aria-hidden="true">↓</span></a>
@@ -162,32 +162,32 @@ FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demos
 
     <section class="comparison section" id="comparador" data-comparison>
       <header class="section-heading">
-        <p data-i18n="compare.eyebrow">El antes y el después</p>
-        <h2 data-i18n="compare.title">De rebuscar capturas a abrir una ficha con todo el contexto.</h2>
+        <p data-i18n="compare.eyebrow">El tiempo que hoy se escapa</p>
+        <h2 data-i18n="compare.title">Tu trabajo no debería empezar buscando capturas.</h2>
         <div class="segmented"><button type="button" data-compare="chaos" aria-pressed="true" data-i18n="compare.tab.chaos">El caos diario</button><button type="button" data-compare="order" aria-pressed="false" data-i18n="compare.tab.order">Con Inkendar</button></div>
       </header>
       <div class="comparison-grid" data-state="chaos">
         <article class="compare-panel chaos">
-          <div class="panel-tag"><span>×</span> <span data-i18n="compare.chaos.tag">El caos diario</span></div><h3 data-i18n="compare.chaos.title">El desorden multitarea</h3>
-          <ul><li data-i18n="compare.chaos.item0">La idea vive en un DM, la referencia llega por WhatsApp y el tamaño acaba en un bloc.</li><li data-i18n="compare.chaos.item1">Buscas en la galería la imagen exacta del cliente de las tres.</li><li data-i18n="compare.chaos.item2">Las señas dependen de comprobaciones manuales dispersas.</li><li data-i18n="compare.chaos.item3">El cliente llega sin completar el consentimiento y aparece otra carpeta de papel.</li></ul>
+          <div class="panel-tag"><span>×</span> <span data-i18n="compare.chaos.tag">El caos diario</span></div><h3 data-i18n="compare.chaos.title">El desorden te roba tiempo.</h3>
+          <ul><li data-i18n="compare.chaos.item0">La idea llega por un canal, la referencia por otro y el tamaño termina apuntado en cualquier parte.</li><li data-i18n="compare.chaos.item1">Buscas la imagen correcta justo cuando deberías estar preparando el trabajo.</li><li data-i18n="compare.chaos.item2">Revisas citas y señales en varios sitios antes de saber qué está confirmado.</li><li data-i18n="compare.chaos.item3">Cuando el trabajo pasa a otro artista, parte del contexto puede perderse.</li></ul>
           <div class="chaos-scene" aria-hidden="true"><span>¿12 o 15 cm?</span><span>IMG_8241.jpg</span><span>SEÑAL ??</span></div>
         </article>
         <article class="compare-panel order">
-          <div class="panel-tag"><span>✓</span> <span data-i18n="compare.order.tag">Con Inkendar</span></div><h3 data-i18n="compare.order.title">La Ficha de Trabajo única</h3>
-          <dl><div><dt data-i18n="compare.order.term0">Contexto unificado</dt><dd data-i18n="compare.order.desc0">Brief, referencias, conversación, artista y citas permanecen en un caso.</dd></div><div><dt data-i18n="compare.order.term1">Control de señas</dt><dd data-i18n="compare.order.desc1">Registra el depósito y protege la agenda sin procesar pagos en el sistema.</dd></div><div><dt data-i18n="compare.order.term2">Firma en tablet o móvil</dt><dd data-i18n="compare.order.desc2">Consentimientos previstos tras validar normativa, versión y retención.</dd></div><div><dt data-i18n="compare.order.term3">Vista “Hoy”</dt><dd data-i18n="compare.order.desc3">Cada artista ve sus citas con la información y las imágenes necesarias.</dd></div></dl>
+          <div class="panel-tag"><span>✓</span> <span data-i18n="compare.order.tag">Con Inkendar</span></div><h3 data-i18n="compare.order.title">Una ficha, un siguiente paso.</h3>
+          <dl><div><dt data-i18n="compare.order.term0">Solicitud ordenada</dt><dd data-i18n="compare.order.desc0">Las consultas web y presenciales siguen el mismo flujo. Instagram y WhatsApp se añadirán en la fase conectada.</dd></div><div><dt data-i18n="compare.order.term1">Referencias a mano</dt><dd data-i18n="compare.order.desc1">Brief, imágenes, zona, tamaño y artista permanecen juntos.</dd></div><div><dt data-i18n="compare.order.term2">Cita y señal claras</dt><dd data-i18n="compare.order.desc2">El estudio ve qué está pendiente y qué está confirmado sin mover dinero en el sistema.</dd></div><div><dt data-i18n="compare.order.term3">Vista “Hoy”</dt><dd data-i18n="compare.order.desc3">Cada artista abre el día con sus citas y la información necesaria.</dd></div></dl>
         </article>
       </div>
     </section>
 
     <section class="features section" id="funciones">
-      <header class="section-heading section-heading--split"><div><p data-i18n="features.eyebrow">Una herramienta de estudio</p><h2 data-i18n="features.title">No otro calendario con un formulario pegado.</h2></div><p data-i18n="features.intro">El caso de tatuaje —no la cita— es la unidad principal. Cada pieza conserva todo su recorrido incluso cuando requiere varias sesiones.</p></header>
+      <header class="section-heading section-heading--split"><div><p data-i18n="features.eyebrow">Lo que recuperas</p><h2 data-i18n="features.title">Una ficha para entender cada trabajo de un vistazo.</h2></div><p data-i18n="features.intro">El piloto empieza con solicitudes web y captura en el estudio. Los canales conectados se incorporarán después de validar sus integraciones oficiales.</p></header>
       <div class="feature-grid">
         {features.map(([icon, title, text, note], index) => <article class:list={['feature', index === 3 && 'feature--wide']}>
           <div class="feature__icon" aria-hidden="true">
             {icon === 'inbox' && <svg viewBox="0 0 32 32"><path d="M5 6h22v20H5zM5 18h6l2 3h6l2-3h6M10 11h12" /></svg>}
             {icon === 'file' && <svg viewBox="0 0 32 32"><path d="M8 4h12l5 5v19H8zM19 4v6h6M12 15h9M12 20h9" /></svg>}
             {icon === 'mobile' && <svg viewBox="0 0 32 32"><rect x="9" y="3" width="14" height="26" rx="2" /><path d="M13 7h6M14 25h4" /></svg>}
-            {icon === 'signature' && <svg viewBox="0 0 32 32"><path d="M5 25c6-8 7-13 9-13 3 0-1 9 2 9 2 0 3-4 5-4 2 0 0 4 2 4 1 0 2-1 4-3M5 28h22M20 9l4-4 3 3-4 4z" /></svg>}
+            {icon === 'today' && <svg viewBox="0 0 32 32"><rect x="5" y="7" width="22" height="20" rx="2" /><path d="M10 4v6M22 4v6M5 13h22M10 18h4M18 18h4M10 22h4" /></svg>}
           </div><span class="feature__index">0{index + 1}</span><h3 data-i18n={'features.' + icon + '.title'}>{title}</h3><p data-i18n={'features.' + icon + '.text'}>{text}</p>{note && <small data-i18n={'features.' + icon + '.note'}>{note}</small>}
         </article>)}
       </div>
@@ -195,7 +195,7 @@ FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demos
     </section>
 
     <section class="pricing section" id="precios" data-pricing>
-      <header class="section-heading pricing-heading"><div><p data-i18n="pricing.eyebrow">Planes del piloto</p><h2 data-i18n="pricing.title">Cuéntanos cómo trabajáis y te orientamos.</h2></div><div class="segmented role"><button type="button" data-role="artist" aria-pressed="false" data-i18n="pricing.role.artist">Trabajo por mi cuenta</button><button type="button" data-role="studio" aria-pressed="true" data-i18n="pricing.role.studio">Somos un estudio</button></div></header>
+      <header class="section-heading pricing-heading"><div><p data-i18n="pricing.eyebrow">Planes del piloto</p><h2 data-i18n="pricing.title">Cuéntanos cómo trabajas. Te ayudamos a elegir el plan adecuado.</h2></div><div class="segmented role"><button type="button" data-role="artist" aria-pressed="false" data-i18n="pricing.role.artist">Trabajo por mi cuenta</button><button type="button" data-role="studio" aria-pressed="true" data-i18n="pricing.role.studio">Somos un estudio</button></div></header>
       <div class="plan-grid">
         {plans.map((plan) => <article class:list={['plan', plan.recommended && 'plan--recommended']} data-plan-card={plan.id}>
           {plan.recommended && <div class="recommended" data-i18n="plans.recommended">Recomendado para el piloto</div>}
@@ -207,7 +207,7 @@ FORM: Persuade; dirección “ficha de estudio” fijada por el brief, con demos
       <p class="pricing-note" data-i18n="pricing.note">Todavía no hemos cerrado los precios. Cuéntanos cómo funciona tu estudio y te explicaremos el alcance del piloto sin compromiso.</p>
     </section>
 
-    <section class="maker section"><div class="maker__mark" aria-hidden="true">IN<br />CA<br />NDI</div><div><p data-i18n="maker.eyebrow">Construido cerca del problema</p><h2 data-i18n="maker.title">Software real para el trabajo entre el primer mensaje y la aguja.</h2></div><p><span data-i18n="maker.prefix">Inkendar es un producto de</span> <strong>Incandi</strong>, <span data-i18n="maker.suffix">desarrollado de forma nativa por Marcos Álvarez, Full Stack Developer enfocado en construir software robusto que resuelva dolores operativos reales. Sin plantillas pesadas: una herramienta hecha para el ritmo diario del estudio.</span></p></section>
+    <section class="maker section"><div class="maker__mark" aria-hidden="true">IN<br />CA<br />NDI</div><div><p data-i18n="maker.eyebrow">Código a medida, no plantillas</p><h2 data-i18n="maker.title">Software creado cerca del problema.</h2></div><p><span data-i18n="maker.prefix">Inkendar es un producto de</span> <strong>Incandi</strong>, <span data-i18n="maker.suffix">desarrollado a medida por Marcos Álvarez, Full Stack Developer. Sin plantillas genéricas: software pensado para el trabajo real de un estudio de tatuaje.</span></p></section>
 
     <section class="closing section"><div><p data-i18n="closing.eyebrow">Fase piloto · selección abierta</p><h2 data-i18n="closing.title">Tu próximo tatuaje merece una ficha. Tu estudio también.</h2></div><button class="button button--light" type="button" data-open-pilot data-plan="studio"><span data-i18n="closing.cta">Solicitar una plaza</span> <span>↗</span></button></section>
   </main>
