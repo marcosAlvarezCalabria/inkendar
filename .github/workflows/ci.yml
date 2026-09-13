@@ -17,23 +17,27 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
+
       - name: Set up Node.js
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Check Astro project
-        run: npm run check
+        run: pnpm run check
 
       - name: Check translations
-        run: node scripts/check-i18n.mjs
+        run: pnpm exec node scripts/check-i18n.mjs
 
       - name: Check story
-        run: node scripts/check-story.mjs
+        run: pnpm exec node scripts/check-story.mjs
 
       - name: Build
-        run: npm run build
+        run: pnpm run build

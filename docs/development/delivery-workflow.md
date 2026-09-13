@@ -62,12 +62,14 @@ No cambia reglas de producto ni debilita pruebas para conseguir un resultado ver
 El workflow se ejecuta en cada Pull Request y en cada push a `main`. Mientras el repositorio contiene solo la landing, la validación mínima es:
 
 ```text
-npm ci
-npm run check
-node scripts/check-i18n.mjs
-node scripts/check-story.mjs
-npm run build
+pnpm install --frozen-lockfile
+pnpm run check
+pnpm exec node scripts/check-i18n.mjs
+pnpm exec node scripts/check-story.mjs
+pnpm run build
 ```
+
+La versión exacta de pnpm se declara en `package.json`; el lockfile `pnpm-lock.yaml` es la única fuente reproducible de dependencias para instalaciones locales y de CI.
 
 Cuando comience la PWA se incorporarán como checks requeridos:
 
@@ -165,3 +167,4 @@ Un cambio está integrado cuando:
 | 2026-09-13 | Se adopta el flujo de dos agentes, PR y CI obligatorio | Separar creación y revisión, automatizar la evidencia y proteger `main`. |
 | 2026-09-13 | Se limita cada chat de agente a un slice y 32.000 tokens | Reducir contexto irrelevante y reiniciar mediante handoffs verificables antes de mezclar objetivos. |
 | 2026-09-13 | Se adopta Engram en modo piloto como memoria auxiliar local | Recuperar solo decisiones relevantes entre sesiones sin convertir la memoria automática en fuente de verdad. |
+| 2026-09-13 | Se adopta pnpm como gestor de paquetes único | Mantener instalaciones locales y de CI reproducibles con una versión exacta y un único lockfile. |
