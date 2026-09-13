@@ -1,5 +1,6 @@
 # Instrucciones principales del proyecto
 
+- Este repositorio contiene la landing comercial y la documentación central de Inkendar. No implementes aquí la PWA ni su backend; el software vive en un repositorio independiente y debe copiar estas decisiones vigentes al inicializarse.
 - Para cualquier feature, corrección, refactorización, cambio arquitectónico, API, base de datos o trabajo de pruebas, carga y sigue `$staff-software-engineer` como skill principal.
 - La arquitectura aprobada de Inkendar es un monolito modular TypeScript. Conserva las dependencias hacia el dominio y aísla Supabase, Chatwoot, Google Calendar y otros proveedores mediante adaptadores.
 - Aplica siempre TDD a cambios de comportamiento: prueba RED primero, implementación mínima GREEN y REFACTOR con la suite verde. Toda corrección reproducible debe empezar con una prueba de regresión. No inventes pruebas para cambios exclusivamente documentales o mecánicos sin comportamiento.

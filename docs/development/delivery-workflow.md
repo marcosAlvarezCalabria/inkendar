@@ -6,6 +6,8 @@ _Última actualización: 2026-09-13_
 
 Este documento define cómo se entrega código en Inkendar. Complementa la [especificación viva](../product/sellable-mvp-spec.md) y la [arquitectura de aplicación](../architecture/application-architecture.md).
 
+El flujo se aplica por separado a cada repositorio. Este repositorio valida y publica la landing; el repositorio de software tendrá su propio workflow, ramas y protección de `main` desde su creación.
+
 ## 1. Modelo operativo
 
 Cada cambio de comportamiento pasa por dos agentes con responsabilidades separadas y por un control automático:
@@ -163,4 +165,3 @@ Un cambio está integrado cuando:
 | 2026-09-13 | Se adopta el flujo de dos agentes, PR y CI obligatorio | Separar creación y revisión, automatizar la evidencia y proteger `main`. |
 | 2026-09-13 | Se limita cada chat de agente a un slice y 32.000 tokens | Reducir contexto irrelevante y reiniciar mediante handoffs verificables antes de mezclar objetivos. |
 | 2026-09-13 | Se adopta Engram en modo piloto como memoria auxiliar local | Recuperar solo decisiones relevantes entre sesiones sin convertir la memoria automática en fuente de verdad. |
-

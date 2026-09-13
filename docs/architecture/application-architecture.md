@@ -8,7 +8,7 @@ _La fuente de verdad del comportamiento y el alcance es [Especificación de Inke
 
 ## 1. Decisión
 
-Construir Inkendar como una **PWA sobre un monolito modular TypeScript**, con una sola aplicación operativa y límites internos explícitos. Utilizar Supabase Cloud como plataforma gestionada de datos, autenticación y archivos. La landing comercial de Inkendar vive en un proyecto y despliegue independientes y no participa en el flujo de datos de estudios.
+Construir Inkendar como una **PWA sobre un monolito modular TypeScript**, con una sola aplicación operativa y límites internos explícitos. Utilizar Supabase Cloud como plataforma gestionada de datos, autenticación y archivos. La landing comercial permanece en este repositorio y no participa en el flujo de datos de estudios. La PWA y su backend viven en un repositorio de software independiente.
 
 ```text
 Landing Inkendar                   Plataforma Inkendar
@@ -51,31 +51,32 @@ Reduce código de backend, pero empuja reglas de negocio y coordinación entre C
 
 Ofrece control total, pero exige operar autenticación, permisos multi-tenant, almacenamiento, colas, backups y varios despliegues antes de validar el negocio. No aporta valor proporcional al MVP.
 
-## 3. Forma del repositorio objetivo
+## 3. Separación de repositorios
 
 ```text
-apps/
-  inkendar/               # PWA y API/BFF
-packages/
-  domain/                 # entidades, estados y reglas puras
-  application/            # casos de uso, DTO y puertos
-  infrastructure/         # Supabase, Chatwoot, Google y notificaciones
-  public-content/         # feed público y web component
-  ui/                     # componentes compartidos del panel
-supabase/
-  migrations/             # esquema versionado
-  policies/               # RLS y grants comprobables
-  seed/                   # datos sintéticos de desarrollo
-docs/
-  architecture/           # decisiones y diagramas
-  product/                # especificación viva y validación
+Repositorio actual: landing comercial
+  src/                     # páginas y componentes Astro
+  public/                  # recursos públicos de marketing
+  scripts/                 # validadores de landing
+  docs/                    # fuente central hasta inicializar el software
 
-Repositorio independiente:
-  inkendar-marketing/     # landing comercial sin datos de estudios
+Repositorio independiente: software (nombre pendiente)
+  apps/
+    inkendar/              # PWA y API/BFF
+  packages/
+    domain/                # entidades, estados y reglas puras
+    application/           # casos de uso, DTO y puertos
+    infrastructure/        # Supabase, Chatwoot, Google y notificaciones
+    public-content/        # feed público y web component
+    ui/                    # componentes compartidos del panel
+  supabase/
+    migrations/            # esquema versionado
+    policies/              # RLS y grants comprobables
+    seed/                  # datos sintéticos de desarrollo
+  docs/                    # copia de decisiones aplicables y specs de slices
 ```
 
-Se utilizarán workspaces de npm al comenzar. No se añadirá una herramienta de monorepo hasta que exista una necesidad medida de caché o coordinación de builds.
-
+Cada repositorio tiene dependencias, CI, ramas, protección de `main` y despliegue propios. La landing no importa código del dominio ni accede a Supabase, Chatwoot, Google Calendar o datos de estudios.
 ## 4. Módulos funcionales
 
 ### Identidad y estudios

@@ -14,7 +14,7 @@ La [Especificación de Inkendar](../product/sellable-mvp-spec.md) define el comp
 - Chatwoot como motor oculto para chat web, Instagram y Facebook.
 - Google Calendar como fuente operativa de disponibilidad y eventos.
 - Adaptadores separados para cada proveedor; el dominio no importa SDK ni DTO externos.
-- Landing Astro en un proyecto y despliegue independientes.
+- La landing Astro permanece en este repositorio y despliegue; la PWA y su backend se crean en un repositorio y despliegue independientes.
 - Feed público de solo lectura para galerías y portfolios publicados.
 
 El MVP utiliza un proyecto Supabase multi-tenant con `studio_id`, RLS y pruebas de aislamiento. No se crea un proyecto por estudio y no se opera Supabase self-hosted durante la validación.

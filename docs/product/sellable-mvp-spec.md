@@ -2,7 +2,7 @@
 
 _Estado: especificación viva y fuente de verdad para alcance, comportamiento y progreso_
 
-_Versión: 0.8.0_
+_Versión: 0.9.0_
 
 _Última actualización: 2026-09-13_
 
@@ -75,6 +75,7 @@ Las correcciones editoriales pueden agruparse en una entrada. Los cambios de com
 | 2026-09-13 | DEC-016 | `ACCEPTED` | Cada chat de agente se limita a un slice y a un presupuesto operativo máximo de 32.000 tokens, sin heredar el historial completo. | Reducir información irrelevante, contradicciones y respuestas basadas en memoria imprecisa; el repositorio conserva la verdad. |
 | 2026-09-13 | DEC-017 | `ACCEPTED` | Engram de Gentleman Programming se prueba como memoria auxiliar local de los agentes, con recuperación limitada y verificación obligatoria contra el repositorio. | Conservar decisiones entre sesiones sin cargar historiales completos ni convertir recuerdos automáticos en autoridad. |
 | 2026-09-13 | DEC-018 | `ACCEPTED` | Se retira el backlog contradictorio de los documentos activos y se autoriza iniciar la base técnica con datos sintéticos mientras continúa la validación comercial. | Reducir contexto obsoleto y permitir progreso verificable sin anunciar ni operar capacidades que aún no han superado sus gates. |
+| 2026-09-13 | DEC-019 | `ACCEPTED` | La landing permanece en el repositorio actual y el software se construye en un repositorio independiente, cada uno con su propio CI y despliegue. | Evitar mezclar ciclos de vida, dependencias y datos del producto con el sitio comercial. |
 
 La arquitectura técnica está en [Arquitectura de aplicación](../architecture/application-architecture.md) y el proceso de entrega en [Flujo de desarrollo, revisión e integración](../development/delivery-workflow.md).
 
@@ -82,6 +83,7 @@ La arquitectura técnica está en [Arquitectura de aplicación](../architecture/
 
 | Fecha | Versión | Mejora o cambio | Por qué |
 |---|---|---|---|
+| 2026-09-13 | 0.9.0 | Se separaron definitivamente los repositorios de landing y software. | Permitir CI, dependencias y despliegues independientes para marketing y plataforma. |
 | 2026-09-13 | 0.8.0 | Se consolidaron las fuentes activas, se retiró el backlog contradictorio y se separó el gate técnico del comercial. | Empezar el desarrollo con datos sintéticos sin arrastrar roles, canales ni prioridades descartados. |
 | 2026-09-13 | 0.7.0 | Se incorporó Engram en modo piloto y se definieron límites de escritura, recuperación y verificación. | Reducir el contexto repetido entre chats manteniendo Git, pruebas y documentos vivos como fuentes de verdad. |
 | 2026-09-13 | 0.6.0 | Se limitó el contexto de cada agente y se formalizó el handoff entre chats. | Evitar sesiones largas con contexto mezclado y obligar a verificar decisiones en el repositorio. |
@@ -97,7 +99,7 @@ La arquitectura técnica está en [Arquitectura de aplicación](../architecture/
 
 - **Inkendar** es el producto.
 - **Incamdi** es la agencia que lo configura, implanta y mantiene durante la validación.
-- La landing comercial de Inkendar es un activo de marketing independiente y no forma parte de las webs ni de los datos de los estudios.
+- La landing comercial permanece en este repositorio como activo de marketing independiente y no forma parte del software, las webs ni los datos de los estudios.
 - La construcción o renovación de una web se vende aparte por Incamdi cuando el estudio no dispone de una.
 - Si el estudio ya tiene web, se conecta a Inkendar sin sustituirla mediante un componente integrable o una API pública de contenido.
 
@@ -322,10 +324,10 @@ Gates iniciales para ampliar:
 El desarrollo técnico con datos sintéticos puede comenzar mientras se completa la validación comercial. Los gates del plan de validación bloquean datos reales, promesas comerciales y cobro; no bloquean CI, contratos, pruebas ni infraestructura local.
 
 1. Consolidar y publicar la spec vigente como línea base.
-2. Crear GitHub Actions con las comprobaciones actuales y proteger `main`.
+2. Crear GitHub Actions para la landing actual y proteger su `main`.
 3. Completar en paralelo la prueba bidireccional de Facebook Messenger.
-4. Extraer la landing comercial a un proyecto independiente antes de convertir este repositorio en la plataforma.
-5. Definir el contrato y las pruebas RED del primer slice de identidad y aislamiento.
+4. Crear el repositorio independiente del software con su propio CI y copiar la spec, arquitectura y reglas vigentes.
+5. Definir en el repositorio de software el contrato y las pruebas RED del primer slice de identidad y aislamiento.
 6. Crear la estructura del monolito modular, migraciones iniciales y pruebas RLS.
 7. Implementar alta manual de estudio, owner y artistas con permisos de solo lectura para artista.
 8. Implementar casos, conversaciones y la frontera oculta con Chatwoot.
