@@ -4,22 +4,37 @@ _La visión general se conserva aquí. La fuente de verdad para el alcance vendi
 
 <!-- impeccable:product-schema 1 -->
 
+## Decisión vigente — 2026-09-10
+
+- **Inkendar** es el producto y **Incamdi** la agencia implementadora.
+- El MVP es un servicio gestionado y una PWA, no autoservicio.
+- El owner opera web, Instagram y Facebook desde Inkendar; Chatwoot trabaja oculto mediante API y webhooks.
+- El owner conecta la cuenta Google central del estudio y asigna un calendario a cada artista.
+- El artista solo consulta su agenda y el contexto necesario; no responde clientes ni administra contenido.
+- El cliente puede recibir hasta tres fechas preaprobadas o elegir un hueco sujeto a aprobación. Las reservas provisionales duran 24 horas por defecto y el estudio puede configurarlo.
+- La landing comercial de Inkendar es independiente de la plataforma y no contiene datos de estudios.
+- El owner gestiona la galería general y las imágenes por artista; se publican tanto en webs creadas por Incamdi como en webs existentes mediante un componente o feed.
+- Supabase Cloud será la base multi-tenant; WhatsApp queda fuera del MVP.
+- Precio provisional interno: 149 €/mes, 690 € de implantación y 99 €/mes durante seis meses para pilotos.
+- Web e Instagram pasaron la prueba bidireccional; Facebook está conectado pero pendiente de prueba final; la PWA, Supabase y Google Calendar aún no están implementados.
+
+Las secciones posteriores conservan la visión amplia y capacidades candidatas. Su alcance y orden de entrega quedan subordinados a la [especificación vigente](docs/product/sellable-mvp-spec.md).
+
 ## Platform
 
 web
 
 ## Users
 
-- Propietario o administrador de un estudio de tatuaje que recibe consultas desde su web, Instagram, WhatsApp Business o el propio estudio y las convierte en casos y citas.
-- Tatuador independiente dentro de un estudio que necesita ver su trabajo del día, las solicitudes asignadas y el material enviado por cada cliente.
-- Tatuador que atiende a un cliente presencialmente y necesita registrar con rapidez el brief, el contacto y las referencias desde un móvil o una tablet.
-- Un estudio puede tener un único usuario o varios artistas con espacios y permisos separados.
+- Owner del estudio, responsable único de canales, clientes, casos, calendarios, citas y contenido publicado.
+- Artista del estudio, con acceso de solo lectura a su agenda y a la información necesaria de sus tatuajes.
+- Cliente final, que conversa por los canales del estudio y utiliza enlaces seguros para elegir o confirmar fechas sin crear una cuenta.
 
 ## Product Purpose
 
-Ofrecer a cada estudio de tatuaje un panel conectado a su web, Instagram y WhatsApp Business que reúna solicitudes, conversaciones, citas e imágenes en un solo lugar. El producto debe convertir formularios públicos, mensajes de Instagram y WhatsApp y consultas atendidas dentro del estudio en trabajo organizado, y dar a cada artista una vista clara de lo que tiene que atender hoy.
+Ofrecer al owner de cada estudio un panel conectado a su web, Instagram y Facebook que reúna conversaciones, casos, ofertas de fechas, citas e imágenes. Chatwoot opera detrás del producto sin ser visible y Google Calendar conserva la ocupación real de cada artista.
 
-El éxito significa que el estudio puede recibir y responder consultas desde el dashboard sin alternar entre el formulario de su web, Instagram, WhatsApp Business, correo, calendario y carpetas de imágenes separadas.
+El éxito significa que el owner puede recibir y responder consultas, ofrecer fechas, confirmar citas y publicar portfolios sin alternar entre herramientas, mientras cada artista entiende su trabajo del día con una vista privada de solo lectura.
 
 ## Positioning
 
@@ -27,10 +42,11 @@ El panel se entrega como una mejora integrada con las webs y los canales de los 
 
 ## Operating Context
 
-- Varias webs de estudios enviarán información a una plataforma común, manteniendo aislados los datos de cada estudio.
-- Cada estudio puede conectar una cuenta profesional de Instagram. Los nuevos mensajes llegan al dashboard y pueden asociarse a un cliente o caso, sin asumir que todo saludo sea una solicitud completa.
-- Cada estudio puede conectar su número actual de WhatsApp Business mediante Coexistence cuando sea elegible, seguir usando la aplicación y reflejar sus chats individuales en el dashboard.
-- El mismo proceso también se iniciará presencialmente: un tatuador autenticado podrá completar el brief con el cliente delante desde el panel, especialmente en móvil o tablet.
+- Un estudio sin web puede contratar a Incamdi una web conectada al contenido publicado en Inkendar.
+- Un estudio con web conserva su sitio y conecta la galería mediante un web component o el feed público.
+- Varias webs consumen una plataforma común, pero solo reciben contenido publicado del estudio correspondiente.
+- Cada owner conecta la cuenta profesional de Instagram y la página de Facebook del estudio. Los mensajes llegan al panel de Inkendar y pueden asociarse a un cliente o caso.
+- El owner puede registrar presencialmente un brief desde el panel; los artistas no operan esta entrada.
 - Los formularios actuales pueden incluir nombre del cliente, idea del tatuaje, zona del cuerpo, artista preferido y tamaño aproximado.
 - Una solicitud inicial no equivale necesariamente a una cita confirmada; el estudio debe poder revisarla, asignarla y convertirla en cita.
 - Los artistas necesitan consultar agenda diaria, imágenes de referencia y datos asociados a su trabajo.
@@ -40,23 +56,24 @@ El panel se entrega como una mejora integrada con las webs y los canales de los 
 
 Capacidades confirmadas:
 
-- multi-tenancy por estudio;
-- uno o varios usuarios/artistas por estudio;
-- entrada de solicitudes desde formularios web y recepción de conversaciones desde Instagram y WhatsApp Business;
-- captura asistida de solicitudes dentro del estudio, optimizada para móvil y tablet;
-- bandeja central omnicanal para solicitudes, conversaciones y mensajes pendientes;
-- agenda y vista "Hoy" por artista;
-- almacenamiento y consulta de imágenes enviadas por clientes o guardadas por artistas;
-- asignación de solicitudes y citas a artistas.
+- multi-tenancy por estudio con un owner operativo;
+- bandeja de Inkendar para web, Instagram y Facebook con Chatwoot oculto;
+- casos y asignación a artistas;
+- ofertas de hasta tres fechas, bloqueos provisionales configurables y elección mediante enlace seguro;
+- Google Calendar central con un calendario por artista;
+- vista de solo lectura de agenda y contexto para cada artista;
+- galería general y portfolios administrados por el owner y publicados mediante una integración de solo lectura;
+- PWA optimizada para móvil, tablet y escritorio.
 
 Decisiones técnicas confirmadas:
 
 - Supabase Cloud como backend gestionado del MVP, en un único proyecto multi-tenant;
-- React y TypeScript para el panel; las webs públicas permanecen desacopladas y pueden usar Astro u otro stack;
-- el MVP recibe solicitudes desde la web y la captura presencial y crea el mismo tipo de caso;
-- la fase conectada usa Chatwoot como primera opción para Instagram y WhatsApp Business, condicionada a un spike técnico, comercial y de Coexistence;
-- la integración directa mediante las APIs oficiales de Meta queda como fallback detrás de un puerto de canal aislado del dominio;
-- la agenda y las citas se gestionan de forma nativa en el MVP; la sincronización con calendarios externos queda para una fase posterior.
+- React y TypeScript para la PWA; Astro para la landing y webs públicas;
+- Chatwoot como motor oculto de conversaciones mediante API y webhooks;
+- Google Calendar como fuente operativa de disponibilidad y eventos;
+- tokens e integraciones solo en backend y aislamiento comprobado con RLS;
+- arquitectura de aplicación aceptada como monolito modular TypeScript;
+- TDD obligatorio mediante RED–GREEN–REFACTOR para todo comportamiento de producción.
 
 Decisiones comerciales confirmadas para la landing de validación:
 
@@ -68,20 +85,21 @@ Decisiones comerciales confirmadas para la landing de validación:
 
 Decisiones abiertas:
 
-- canal inicial para responder solicitudes de la web: correo o enlace seguro; Instagram y WhatsApp conservan sus canales cuando sus APIs permitan responder;
-- procesamiento de pagos de señal, formularios de consentimiento y seguimiento de curación quedan fuera del primer slice; P0 sí registra el estado manual de la señal.
-- tratamiento comercial de los cargos de Meta por mensajes enviados mediante WhatsApp Cloud API;
-- límites definitivos por plan, impuestos, condiciones contractuales del precio fundador y costes de terceros.
+- elección del proveedor de alojamiento para la PWA y API/BFF;
+- política final de cancelaciones, cambios y recordatorios;
+- límites técnicos de imágenes, formatos y proceso de moderación;
+- límites definitivos por plan, impuestos, condiciones contractuales del precio fundador y costes de terceros;
+- procesamiento de pagos, señales y consentimientos, fuera del primer slice.
 
 ## Evidence on Hand
 
 - Existe al menos una web con un formulario que recoge nombre, idea del tatuaje, zona del cuerpo, artista y tamaño aproximado.
 - La investigación exploratoria en conversaciones de tatuadores, clientes y reseñas de software respalda como problemas repetidos la fragmentación de contexto, la diferencia entre solicitud y cita, los briefs incompletos, la incertidumbre de comunicación y el control de señales/no-shows. La síntesis está en `docs/research/tattoo-artist-voice-of-customer.md`.
-- No se han aportado todavía repositorios de las webs, diseños, identidad visual, datos reales de uso ni pilotos. La investigación de internet descubre patrones cualitativos, no porcentajes; las decisiones se revisarán con nueva evidencia pública y con el comportamiento y feedback voluntario de los pilotos.
+- No se han aportado todavía datos reales de uso ni pilotos externos. El piloto cero técnico del fundador está planificado, pero aún no ejecutado. La investigación de internet descubre patrones cualitativos, no porcentajes; las decisiones se revisarán con evidencia del spike y con el comportamiento y feedback voluntario de los pilotos.
 
 ## Product Principles
 
-1. Una sola ficha debe reunir todo el contexto necesario para realizar un tatuaje, aunque la conversación haya empezado en la web, Instagram, WhatsApp Business o presencialmente.
+1. Una sola ficha debe reunir el contexto necesario para realizar un tatuaje, aunque la conversación haya empezado en la web, Instagram, Facebook o presencialmente.
 2. Cada artista debe poder entender su día con una mirada.
 3. La integración con una web existente debe ser sencilla y desacoplada de su tecnología.
 4. Registrar una consulta delante del cliente debe ser rápido y no exigirle crear una cuenta.

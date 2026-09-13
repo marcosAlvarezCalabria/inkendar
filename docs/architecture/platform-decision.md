@@ -2,17 +2,21 @@
 
 _Estado: aceptada_
 
-_Última actualización: 2026-08-30_
+_Última actualización: 2026-09-10_
 
-_La fuente de verdad para la arquitectura por fases es [Especificación del MVP vendible](../product/sellable-mvp-spec.md). La integración directa con Meta descrita más abajo queda como fallback de la fase conectada, no como dependencia del MVP inicial._
+_La fuente de verdad para comportamiento y fases es [Especificación de Inkendar](../product/sellable-mvp-spec.md). La forma recomendada del sistema y sus alternativas están en [Arquitectura de aplicación](application-architecture.md)._
+
+_Decisión vigente: Supabase conserva dominio, relaciones y auditoría; Chatwoot funciona como motor oculto para web, Instagram y Facebook; Google Calendar conserva disponibilidad y eventos. El owner opera todo desde Inkendar y el artista tiene acceso de solo lectura. WhatsApp y los adaptadores directos de Meta quedan fuera del MVP._
 
 ## Decisión
 
-Construir el MVP sobre **Supabase Cloud** usando un único proyecto multi-tenant, con React y TypeScript para el panel. Mantener las webs públicas independientes: Astro sigue siendo una buena opción para webs de contenido y rendimiento, pero se conectarán mediante un formulario o web component agnóstico del framework.
+Construir el MVP sobre **Supabase Cloud** usando un único proyecto multi-tenant. Mantener la landing en Astro y construir el panel como PWA React y TypeScript.
 
-En el MVP, dos entradas crean casos: un endpoint público para las webs y una operación autenticada para la captura presencial. El núcleo vendible no depende de Instagram, WhatsApp ni de aprobación de Meta.
+El owner utiliza Inkendar como única interfaz operativa. Chatwoot funciona detrás mediante API y webhooks para web, Instagram y Facebook; no se muestra su interfaz a usuarios del estudio. Google Calendar conserva la ocupación y los eventos, con una cuenta central del estudio y un calendario por artista. Supabase conserva casos, ofertas, relaciones, configuración y auditoría.
 
-Para la fase conectada, **Chatwoot es la primera opción como motor de conversaciones** mediante API y webhooks, con un espacio aislado por estudio y Supabase como fuente de verdad del dominio de tatuaje. Esta elección queda condicionada a un spike que confirme Instagram, WhatsApp Business Coexistence, adjuntos, aislamiento, API, licenciamiento y coste. Si no lo supera, los adaptadores directos de Meta descritos en este documento son el fallback y conservarán el mismo puerto de aplicación.
+Los artistas tienen acceso de solo lectura a su agenda y al contexto necesario de sus tatuajes. No conectan canales, responden clientes, confirman citas ni publican contenido. El cliente utiliza enlaces seguros y temporales sin crear una cuenta.
+
+La forma aceptada es un monolito modular TypeScript con API/BFF y adaptadores separados para Supabase, Chatwoot y Google. La decisión se detalla en [Arquitectura de aplicación](application-architecture.md) y todo comportamiento se desarrolla mediante TDD. WhatsApp y los adaptadores directos de Meta quedan como posibilidades futuras, no como dependencias del MVP.
 
 No desplegar Supabase self-hosted durante la validación inicial. Conservar migraciones SQL, políticas y contratos en el repositorio para mantener una ruta realista de self-hosting posterior.
 
@@ -73,7 +77,9 @@ No debe ser el backend del producto. Puede añadirse como motor de disponibilida
 
 Astro es apropiado para las webs públicas, donde contenido, SEO y mínimo JavaScript importan. El panel es una aplicación operativa altamente interactiva; React como SPA reduce la fricción de estado compartido, filtros, agenda, subida de imágenes y actualizaciones en tiempo real.
 
-## Arquitectura propuesta
+## Arquitectura histórica de referencia
+
+El diagrama, componentes y slices siguientes corresponden a una propuesta anterior centrada en intake directo y adaptadores propios de Meta. Se conservan como contexto técnico, pero no son el plan de implementación vigente. La arquitectura vigente es el monolito modular descrito en [Arquitectura de aplicación](application-architecture.md).
 
 ```mermaid
 flowchart LR
@@ -170,6 +176,7 @@ Caso, cita y señal conservan estados independientes. Un caso puede tener varias
 
 ## Slices técnicos por fases
 
+0. Ejecutar el piloto cero de canales y registrar el veredicto antes del descubrimiento externo.
 1. Crear monorepo TypeScript y contratos del intake.
 2. Añadir migraciones para estudios, membresías, artistas, clientes, casos, recursos, citas, señales y auditoría.
 3. Escribir pruebas RED de RLS: miembro del estudio puede leer; usuario externo y anónimo no pueden.
@@ -181,8 +188,7 @@ Caso, cita y señal conservan estados independientes. Un caso puede tener varias
 9. Añadir el registro manual de señales y sus estados sin procesar pagos.
 10. Añadir notificaciones, búsqueda, exportación, monitorización y hardening móvil.
 11. Validar el flujo completo con un estudio piloto y corregir los bloqueos para cobrar.
-12. Ejecutar el spike de Chatwoot con Instagram y WhatsApp Business Coexistence.
-13. Implementar la fase conectada usando Chatwoot o, si no supera el spike, los adaptadores directos de Meta.
+12. Convertir el spike aprobado en integración de producción o ejecutar únicamente el fallback decidido.
 
 El alta como Tech Provider y las revisiones de Meta deben iniciarse con antelación suficiente para la fase conectada, pero no bloquean el MVP web + workspace ni su primer piloto comercial.
 

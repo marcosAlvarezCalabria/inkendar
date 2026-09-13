@@ -2,20 +2,27 @@
 
 _Estado: fuente de verdad para la fase anterior al desarrollo y los estudios pioneros_
 
-_Última actualización: 2026-08-30_
+_Última actualización: 2026-09-02_
+
+## Actualización de alcance
+
+El producto se valida como servicio gestionado de **Inkendar**, implantado por **Incamdi**. La oferta inicial incluye chat web, Instagram, Facebook Messenger y conexión con Google Calendar. WhatsApp queda fuera del MVP. El orden y los gates actuales prevalecen en [Especificación de Inkendar](sellable-mvp-spec.md); las referencias posteriores a la promesa original de tres canales con WhatsApp quedan como contexto histórico.
 
 ## 1. Decisión
 
-Antes de implementar el SaaS completo se validarán el problema, el mensaje comercial y la disposición a pagar. La validación no sustituye el MVP funcional: decide qué parte se construye primero y evita invertir en integraciones que ningún estudio priorice.
+Antes de implementar el SaaS completo se validarán la viabilidad técnica de la promesa omnicanal, el problema, el mensaje comercial y la disposición a pagar. La validación no sustituye el MVP funcional: decide qué parte se construye primero y evita vender integraciones inviables o invertir en capacidades que ningún estudio priorice.
 
 La secuencia aprobada es:
 
 ```text
-descubrimiento → landing independiente → intención cualificada
+piloto cero técnico del fundador → veredicto de canales
+              → descubrimiento → landing independiente → intención cualificada
               → co-diseño → MVP web + workspace
               → piloto real → primera suscripción
-              → fase conectada Instagram/WhatsApp
+              → producción de los canales que superaron el spike
 ```
+
+El piloto cero se rige por [Plan del piloto cero](founder-pilot-zero-plan.md). Demuestra con cuentas propias si web, Instagram y WhatsApp Business pueden convivir en un mismo motor y conectarse al futuro panel. No sustituye las entrevistas: un `PASS` técnico no demuestra que otros estudios tengan el problema ni que paguen por resolverlo.
 
 ## 2. Separación de marcas
 
@@ -53,7 +60,17 @@ El foco continúa en estudios de 2 a 6 artistas. Los artistas independientes pue
 - No se cobra porcentaje sobre tatuajes o señales.
 - Un clic en precios mide interés; solo una aceptación explícita del precio o un pago demuestra disposición a pagar.
 
-## 4. Validación de siete días
+## 4. Piloto cero técnico
+
+Antes de contactar estudios se ejecuta el spike con cuentas propias y datos sintéticos. Su resultado es:
+
+- `PASS`: los tres canales y la frontera con Inkendar funcionan; comienza el descubrimiento;
+- `PARTIAL`: se puede investigar, pero el canal pendiente no se anuncia como disponible;
+- `FAIL`: se reduce la promesa o se aprueba una alternativa antes de captar estudios.
+
+La prueba debe confirmar especialmente que el número actual continúa funcionando en la aplicación WhatsApp Business cuando se conecta mediante el flujo oficial de Coexistence. Un número de prueba de Meta no satisface este criterio.
+
+## 5. Validación de siete días
 
 ### Días 1–3 — Descubrimiento
 
@@ -110,7 +127,7 @@ Se revisa la evidencia y se elige uno de estos resultados:
 
 Un 10% de clics puede ser una señal direccional, pero no ofrece “certeza absoluta”. Se analizarán visitas únicas cualificadas, solicitudes de beta, demos aceptadas y compromiso de piloto.
 
-## 5. Programa de estudios pioneros
+## 6. Programa de estudios pioneros
 
 Se seleccionan como máximo diez estudios pioneros. “Estudio pionero” o “design partner” no implica sociedad mercantil, participación ni propiedad del producto.
 
@@ -139,7 +156,7 @@ No se promete Instagram o WhatsApp dentro de una fecha fija. Solo se incorporan 
 - confirmación del alcance contratado;
 - comienzo de la suscripción si el estudio decide continuar.
 
-## 6. Oferta para pioneros
+## 7. Oferta para pioneros
 
 Se puede ofrecer:
 
@@ -158,7 +175,7 @@ No se ofrecerá:
 - promesa de lanzamiento en 2–4 semanas antes de estimar el backlog validado;
 - tratamiento del estudio como “socio fundador” con implicaciones legales.
 
-## 7. Mensaje de aproximación
+## 8. Mensaje de aproximación
 
 ```text
 Hola, estoy investigando cómo los estudios organizan las solicitudes que llegan
@@ -174,7 +191,7 @@ construirse.
 
 Después de confirmar el problema se enseña la landing o el prototipo. No se empieza con una demostración que pueda condicionar todas las respuestas.
 
-## 8. Evidencia que debe conservarse
+## 9. Evidencia que debe conservarse
 
 Por cada conversación:
 
@@ -190,10 +207,11 @@ Por cada conversación:
 
 No se almacenan conversaciones privadas, datos de clientes del estudio ni capturas con información personal sin autorización.
 
-## 9. Gate para empezar a implementar
+## 10. Gate para empezar a implementar
 
 El desarrollo del MVP comienza cuando se cumplen estas condiciones:
 
+- el piloto cero termina en `PASS`, o el alcance comercial se corrige explícitamente tras un resultado `PARTIAL/FAIL`;
 - al menos 3 conversaciones de descubrimiento completadas;
 - el mismo problema operativo aparece de manera espontánea en más de un estudio;
 - al menos un estudio acepta ser piloto con solicitudes reales;
@@ -203,7 +221,7 @@ El desarrollo del MVP comienza cuando se cumplen estas condiciones:
 
 Si el gate no se cumple, se modifica mensaje, segmento o problema antes de construir infraestructura adicional.
 
-## 10. Métrica de éxito del lanzamiento inicial
+## 11. Métrica de éxito del lanzamiento inicial
 
 La validación termina con éxito cuando un estudio:
 
