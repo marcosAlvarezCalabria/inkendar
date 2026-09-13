@@ -2,7 +2,7 @@
 
 _Estado: aceptada_
 
-_Última actualización: 2026-09-10_
+_Última actualización: 2026-09-13_
 
 _La fuente de verdad del comportamiento y el alcance es [Especificación de Inkendar](../product/sellable-mvp-spec.md). Este documento explica cómo construirlo y debe actualizarse cuando cambie una frontera, dependencia o decisión técnica._
 
@@ -183,6 +183,8 @@ El proveedor de alojamiento de la PWA queda abierto hasta comparar coste, regió
 
 ## 10. TDD, calidad y observabilidad
 
+El proceso operativo completo está definido en [Flujo de desarrollo, revisión e integración](../development/delivery-workflow.md). Dos agentes trabajan secuencialmente: uno implementa mediante TDD y otro revisa, ejecuta la validación completa, gestiona el Pull Request y vigila el CI.
+
 Todo comportamiento de producción se implementa mediante RED–GREEN–REFACTOR:
 
 1. **RED:** escribir primero una prueba que falle por el comportamiento ausente o por la regresión.
@@ -210,3 +212,4 @@ La recomendación añade un backend propio delgado, pero concentra allí autoriz
 | 2026-09-10 | Primera propuesta de arquitectura de aplicación | Convertir las decisiones de producto en una estructura implementable y comparar alternativas antes de escribir el panel. |
 | 2026-09-10 | Separación de la landing y contrato de contenido web | Conectar galerías con webs nuevas o existentes sin mezclar marketing de Inkendar ni exponer datos privados. |
 | 2026-09-10 | Ratificación del monolito modular y TDD | Fijar una arquitectura operable y pruebas previas al código de producción para todos los cambios de comportamiento. |
+| 2026-09-13 | Flujo de dos agentes y CI | Separar implementación e integración y exigir validación automática antes de `main`. |

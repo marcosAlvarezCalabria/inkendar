@@ -81,7 +81,7 @@ Decisiones comerciales confirmadas para la landing de validación:
 - la landing no publica precios por ahora: presenta planes consultables mientras se validan alcance, límites y costes; las hipótesis comerciales permanecen en la especificación interna;
 - la landing ofrece una selección piloto limitada y deja claro que la beta todavía no es autoservicio;
 - la landing se ofrece en español e inglés mediante un selector explícito que conserva la preferencia del visitante;
-- identidad visual oscura, móvil primero, con logo mecánico y naranja corporativo `#FF7000`; permanece separada de Incandi, que aparece únicamente como equipo desarrollador.
+- identidad visual oscura, móvil primero, con logo mecánico y naranja corporativo `#FF7000`; permanece separada de Incamdi, que aparece únicamente como equipo desarrollador.
 
 Decisiones abiertas:
 
