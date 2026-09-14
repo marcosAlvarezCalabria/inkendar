@@ -2,7 +2,7 @@
 
 _Estado: especificación viva y fuente de verdad para alcance, comportamiento y progreso_
 
-_Versión: 0.9.0_
+_Versión: 0.9.2_
 
 _Última actualización: 2026-09-13_
 
@@ -46,7 +46,7 @@ Las correcciones editoriales pueden agruparse en una entrada. Los cambios de com
 | Facebook Messenger | `CONNECTED` | Falta la prueba bidireccional final. |
 | Operación dentro de Inkendar | `PLANNED` | Chatwoot todavía no está oculto detrás del futuro panel. |
 | PWA y autenticación | `PLANNED` | No existe todavía la aplicación privada. |
-| Flujo de entrega y CI | `PLANNED` | El proceso de dos agentes está aceptado; falta crear GitHub Actions y proteger `main`. |
+| Flujo de entrega y CI | `DONE` | El workflow pasa en el [PR #1](https://github.com/marcosAlvarezCalabria/inkendar/pull/1) y `main` exige PR, el check `validate`, conversaciones resueltas e historial lineal mediante squash. |
 | Memoria de agentes | `PASS` | Engram 1.20.0 guarda y recupera memoria del proyecto `inkendar`; Codex MCP está configurado y requiere reinicio para cargarlo en nuevos chats. |
 | Supabase y aislamiento multi-tenant | `PLANNED` | No existen proyecto, migraciones ni pruebas RLS en el repositorio. |
 | Google Calendar y booking | `PLANNED` | No existe OAuth, disponibilidad, ofertas ni creación de eventos. |
@@ -83,6 +83,8 @@ La arquitectura técnica está en [Arquitectura de aplicación](../architecture/
 
 | Fecha | Versión | Mejora o cambio | Por qué |
 |---|---|---|---|
+| 2026-09-13 | 0.9.2 | Se verificó el workflow en GitHub y se protegió `main` con PR, CI requerido y squash. | Cerrar el gate técnico con evidencia remota y controles efectivos. |
+| 2026-09-13 | 0.9.1 | Se registró el workflow de CI como trabajo en curso tras superar la validación local. | Mantener el progreso verificable sin declararlo completado antes de publicar la rama, ejecutar GitHub Actions y proteger `main`. |
 | 2026-09-13 | 0.9.0 | Se separaron definitivamente los repositorios de landing y software. | Permitir CI, dependencias y despliegues independientes para marketing y plataforma. |
 | 2026-09-13 | 0.8.0 | Se consolidaron las fuentes activas, se retiró el backlog contradictorio y se separó el gate técnico del comercial. | Empezar el desarrollo con datos sintéticos sin arrastrar roles, canales ni prioridades descartados. |
 | 2026-09-13 | 0.7.0 | Se incorporó Engram en modo piloto y se definieron límites de escritura, recuperación y verificación. | Reducir el contexto repetido entre chats manteniendo Git, pruebas y documentos vivos como fuentes de verdad. |
