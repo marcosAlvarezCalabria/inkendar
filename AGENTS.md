@@ -1,8 +1,9 @@
 # Instrucciones principales del proyecto
 
-- Este repositorio contiene la landing comercial y la documentación central de Inkendar. No implementes aquí la PWA ni su backend; el software vive en un repositorio independiente y debe copiar estas decisiones vigentes al inicializarse.
+- Este repositorio contiene la landing comercial y las fuentes de verdad de marketing, diseño e investigación de Inkendar. No implementes aquí la PWA ni su backend.
+- El software vive en `marcosAlvarezCalabria/inkendar.app`. Su especificación, arquitectura, contratos, progreso y gates técnicos son autoritativos allí; no mantengas copias activas de ese estado en este repositorio.
 - Para cualquier feature, corrección, refactorización, cambio arquitectónico, API, base de datos o trabajo de pruebas, carga y sigue `$staff-software-engineer` como skill principal.
-- La arquitectura aprobada de Inkendar es un monolito modular TypeScript. Conserva las dependencias hacia el dominio y aísla Supabase, Chatwoot, Google Calendar y otros proveedores mediante adaptadores.
+- Cuando una tarea afecte al software, trabaja en `inkendar.app` y sigue su `AGENTS.md`, su especificación y su arquitectura vigentes. No traslades código, migraciones ni contratos técnicos a este repositorio.
 - Aplica siempre TDD a cambios de comportamiento: prueba RED primero, implementación mínima GREEN y REFACTOR con la suite verde. Toda corrección reproducible debe empezar con una prueba de regresión. No inventes pruebas para cambios exclusivamente documentales o mecánicos sin comportamiento.
 - Usa dos roles secuenciales para entregar código: el agente de implementación trabaja en una rama `codex/*` y no integra; el agente de integración revisa el diff, ejecuta la validación completa, gestiona el Pull Request y vigila GitHub Actions hasta un resultado final.
 - Una vez activo el CI, no integres código directamente en `main`: exige Pull Request y checks verdes. Devuelve al agente de implementación los fallos de producto; el agente de integración corrige únicamente problemas del pipeline o de integración dentro de su responsabilidad.
@@ -11,5 +12,5 @@
 - Usa Engram como memoria auxiliar del proyecto: al iniciar un slice recupera solo las memorias relacionadas; al terminar guarda únicamente decisiones duraderas, descubrimientos y el handoff. No guardes conversaciones completas, salidas crudas, código, secretos ni datos de clientes. Verifica siempre lo recuperado contra Git, pruebas y documentos vivos.
 - Aplica el proceso con proporcionalidad: una modificación trivial no necesita la misma ceremonia que un cambio de dominio, seguridad o persistencia.
 - Respeta las instrucciones explícitas del usuario y cualquier `AGENTS.md` más cercano al archivo que se esté modificando.
-- Trata los documentos vivos que el proyecto designe como fuentes de verdad y mantenlos sincronizados cuando cambien decisiones, alcance, stack o estado.
+- Trata los documentos vivos que cada repositorio designe como fuentes de verdad. Aquí son autoritativos `PRODUCT.md`, `DESIGN.md`, `docs/design/` y `docs/research/` para la landing y su evidencia; en `inkendar.app` lo son los documentos de producto, arquitectura, contratos y entrega del software.
 - No incluyas secretos ni datos personales o comerciales sensibles en `AGENTS.md` ni en documentación técnica destinada al repositorio.
