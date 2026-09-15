@@ -1,10 +1,10 @@
 # Product
 
-_La visión general se conserva aquí. La fuente de verdad para el alcance vendible, las fases y la Definition of Done es `docs/product/sellable-mvp-spec.md`; ante una contradicción prevalece esa especificación._
+_Este documento gobierna el posicionamiento y la promesa pública de la landing. La fuente de verdad para alcance, progreso, arquitectura, contratos y gates del software es la [especificación de `inkendar.app`](https://github.com/marcosAlvarezCalabria/inkendar.app/blob/main/docs/product/sellable-mvp-spec.md)._
 
 <!-- impeccable:product-schema 1 -->
 
-## Decisión vigente — 2026-09-10
+## Decisión vigente — 2026-09-15
 
 - **Inkendar** es el producto y **Incamdi** la agencia implementadora.
 - El MVP es un servicio gestionado y una PWA, no autoservicio.
@@ -16,9 +16,9 @@ _La visión general se conserva aquí. La fuente de verdad para el alcance vendi
 - El owner gestiona la galería general y las imágenes por artista; se publican tanto en webs creadas por Incamdi como en webs existentes mediante un componente o feed.
 - Supabase Cloud será la base multi-tenant; WhatsApp queda fuera del MVP.
 - Precio provisional interno: 149 €/mes, 690 € de implantación y 99 €/mes durante seis meses para pilotos.
-- Web e Instagram pasaron la prueba bidireccional; Facebook está conectado pero pendiente de prueba final; la PWA, Supabase y Google Calendar aún no están implementados.
+- La landing no duplica el estado de implementación. Las capacidades solo se presentan como disponibles cuando `inkendar.app` registra evidencia suficiente para superar sus gates.
 
-Las secciones posteriores conservan la visión amplia y capacidades candidatas. Su alcance y orden de entrega quedan subordinados a la [especificación vigente](docs/product/sellable-mvp-spec.md).
+Las secciones posteriores conservan la visión amplia y capacidades candidatas. Su alcance, estado y orden de entrega quedan subordinados a la [especificación canónica del software](https://github.com/marcosAlvarezCalabria/inkendar.app/blob/main/docs/product/sellable-mvp-spec.md).
 
 ## Platform
 
@@ -54,7 +54,7 @@ El panel se entrega como una mejora integrada con las webs y los canales de los 
 
 ## Capabilities and Constraints
 
-Capacidades confirmadas:
+Capacidades de producto confirmadas; su presencia aquí no implica que estén implementadas:
 
 - multi-tenancy por estudio con un owner operativo;
 - bandeja de Inkendar para web, Instagram y Facebook con Chatwoot oculto;
@@ -85,17 +85,13 @@ Decisiones comerciales confirmadas para la landing de validación:
 
 Decisiones abiertas:
 
-- elección del proveedor de alojamiento para la PWA y API/BFF;
-- política final de cancelaciones, cambios y recordatorios;
-- límites técnicos de imágenes, formatos y proceso de moderación;
-- límites definitivos por plan, impuestos, condiciones contractuales del precio fundador y costes de terceros;
-- procesamiento de pagos, señales y consentimientos, fuera del primer slice.
+Las decisiones abiertas del software se mantienen únicamente en la [especificación canónica](https://github.com/marcosAlvarezCalabria/inkendar.app/blob/main/docs/product/sellable-mvp-spec.md). Este repositorio solo mantiene decisiones abiertas propias de marca, dominio, copy, presentación comercial y activos de la landing.
 
 ## Evidence on Hand
 
 - Existe al menos una web con un formulario que recoge nombre, idea del tatuaje, zona del cuerpo, artista y tamaño aproximado.
 - La investigación exploratoria en conversaciones de tatuadores, clientes y reseñas de software respalda como problemas repetidos la fragmentación de contexto, la diferencia entre solicitud y cita, los briefs incompletos, la incertidumbre de comunicación y el control de señales/no-shows. La síntesis está en `docs/research/tattoo-artist-voice-of-customer.md`.
-- No se han aportado todavía datos reales de uso ni pilotos externos. El piloto cero técnico del fundador está planificado, pero aún no ejecutado. La investigación de internet descubre patrones cualitativos, no porcentajes; las decisiones se revisarán con evidencia del spike y con el comportamiento y feedback voluntario de los pilotos.
+- La investigación de internet descubre patrones cualitativos, no porcentajes. La evidencia comercial y el estado de los pilotos se registran en el [plan canónico de validación](https://github.com/marcosAlvarezCalabria/inkendar.app/blob/main/docs/product/validation-and-launch-plan.md), fuera de este repositorio.
 
 ## Product Principles
 

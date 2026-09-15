@@ -1,12 +1,12 @@
-# Flujo de desarrollo, revisión e integración
+# Flujo de desarrollo, revisión e integración de la landing
 
 _Estado: aceptado_
 
-_Última actualización: 2026-09-13_
+_Última actualización: 2026-09-15_
 
-Este documento define cómo se entrega código en Inkendar. Complementa la [especificación viva](../product/sellable-mvp-spec.md) y la [arquitectura de aplicación](../architecture/application-architecture.md).
+Este documento define cómo se entrega el código de la landing de Inkendar. Complementa [`PRODUCT.md`](../../PRODUCT.md), [`DESIGN.md`](../../DESIGN.md) y el [brief de la superficie](../design/landing-surface-brief.md).
 
-El flujo se aplica por separado a cada repositorio. Este repositorio valida y publica la landing; el repositorio de software tendrá su propio workflow, ramas y protección de `main` desde su creación.
+El software tiene su propio flujo, ramas, protección de `main` y documentación en [`inkendar.app`](https://github.com/marcosAlvarezCalabria/inkendar.app/blob/main/docs/development/delivery-workflow.md). Este documento no gobierna ese repositorio.
 
 ## 1. Modelo operativo
 
@@ -35,10 +35,10 @@ Responsabilidades:
 - confirmar el slice y sus criterios de aceptación;
 - crear una rama `codex/<tema>` de vida corta;
 - aplicar TDD con RED–GREEN–REFACTOR;
-- mantener los límites del monolito modular;
+- mantener la arquitectura Astro, la internacionalización y los límites de la landing;
 - añadir pruebas de regresión antes de corregir defectos reproducibles;
 - ejecutar las comprobaciones enfocadas;
-- actualizar la especificación y decisiones afectadas;
+- actualizar las fuentes de verdad de la landing afectadas;
 - entregar un resumen del cambio, pruebas y riesgos.
 
 No integra ni sube cambios directamente a `main`.
@@ -48,7 +48,7 @@ No integra ni sube cambios directamente a `main`.
 Responsabilidades:
 
 - revisar el diff completo y la coherencia con la spec;
-- comprobar arquitectura, permisos, migraciones, seguridad y cambios accidentales;
+- comprobar arquitectura Astro, internacionalización, accesibilidad, seguridad y cambios accidentales;
 - ejecutar la validación completa disponible;
 - crear o actualizar el Pull Request;
 - mantener GitHub Actions y las reglas de protección;
@@ -70,16 +70,6 @@ pnpm run build
 ```
 
 La versión exacta de pnpm se declara en `package.json`; el lockfile `pnpm-lock.yaml` es la única fuente reproducible de dependencias para instalaciones locales y de CI.
-
-Cuando comience la PWA se incorporarán como checks requeridos:
-
-- pruebas unitarias del dominio;
-- pruebas de casos de uso;
-- pruebas de integración de Supabase y RLS;
-- lint;
-- typecheck;
-- build de las aplicaciones afectadas;
-- los pocos E2E críticos acordados.
 
 Un comando no se añade al CI hasta existir en el repositorio y poder ejecutarse localmente.
 
@@ -123,7 +113,7 @@ Los agentes nuevos se crean sin heredar el historial completo de la conversació
 
 - objetivo concreto y resultado esperado;
 - criterios de aceptación del slice;
-- rutas de la spec, ADR y documentos aplicables;
+- rutas de `PRODUCT.md`, `DESIGN.md`, el brief y los documentos aplicables;
 - rama, commit base y estado relevante;
 - archivos inicialmente relacionados;
 - pruebas que deben fallar o pasar;
@@ -135,25 +125,25 @@ Cuando un chat se acerca al límite o descubre un segundo objetivo:
 
 1. termina o estabiliza el slice actual sin dejar cambios ambiguos;
 2. escribe un handoff de hasta 1.500 palabras;
-3. registra decisiones nuevas en la spec o ADR correspondiente;
+3. registra decisiones nuevas en la fuente viva de la landing correspondiente;
 4. inicia un chat nuevo sin historial heredado;
 5. el nuevo agente verifica el handoff contra Git, pruebas y documentos antes de continuar.
 
-El handoff no sustituye las fuentes de verdad. Ante una diferencia, prevalecen el código comprobado, las pruebas, la spec vigente, las ADR aceptadas y el estado Git, en ese orden según el asunto.
+El handoff no sustituye las fuentes de verdad. Ante una diferencia, prevalecen el código comprobado, las pruebas, `PRODUCT.md`, `DESIGN.md`, el brief vigente y el estado Git, en ese orden según el asunto.
 
 ### Memoria auxiliar con Engram
 
-Engram se usa como índice local y persistente para recuperar contexto relevante sin copiar el historial completo al chat. Al comenzar un slice, el agente consulta el proyecto `inkendar` y recupera únicamente las memorias relacionadas con el objetivo. La recuperación inicial se limita a un máximo de 10 resultados y debe mantenerse dentro del paquete de contexto acordado.
+Engram se usa como índice local y persistente para recuperar contexto relevante sin copiar el historial completo al chat. Al comenzar un slice de la landing, el agente consulta el proyecto `inkendar`; el trabajo del software utiliza el proyecto `inkendar.app`. La recuperación inicial se limita a un máximo de 10 resultados y debe mantenerse dentro del paquete de contexto acordado.
 
 Al terminar, el agente guarda solo decisiones duraderas, descubrimientos, correcciones verificadas y el resumen de handoff. Cada memoria indica qué cambió, por qué, dónde está la evidencia y qué se aprendió. No se guardan conversaciones completas, código fuente, salidas crudas de herramientas, secretos ni datos de clientes.
 
-Engram no es fuente de verdad. Toda memoria usada para decidir o implementar se contrasta con Git, pruebas, la spec y las ADR vigentes. Si existe contradicción, se corrige o elimina la memoria y prevalece la evidencia del repositorio.
+Engram no es fuente de verdad. Toda memoria usada para decidir o implementar la landing se contrasta con Git, pruebas, `PRODUCT.md`, `DESIGN.md` y el brief vigente. Si existe contradicción, se corrige o elimina la memoria y prevalece la evidencia del repositorio.
 
 ## 8. Definition of Done de entrega
 
 Un cambio está integrado cuando:
 
-- cumple la spec y los criterios del slice;
+- cumple las fuentes de verdad de la landing y los criterios del slice;
 - la revisión no tiene observaciones bloqueantes;
 - todos los checks requeridos pasan sobre el commit final;
 - la documentación viva está sincronizada;
