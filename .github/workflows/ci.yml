@@ -36,6 +36,9 @@ jobs:
       - name: Check translations
         run: pnpm exec node scripts/check-i18n.mjs
 
+      - name: Check public channels
+        run: pnpm exec node scripts/check-public-channels.mjs
+
       - name: Check story
         run: pnpm exec node scripts/check-story.mjs
 
