@@ -1,6 +1,6 @@
 # Instrucciones principales del proyecto
 
-- Este repositorio contiene la landing comercial y las fuentes de verdad de marketing, diseño e investigación de Inkendar. No implementes aquí la PWA ni su backend.
+- Este repositorio contiene exclusivamente la landing comercial Astro y las fuentes de verdad de marketing, diseño e investigación de Inkendar. Se despliega por Netlify. El panel/PWA y su backend se implementan en `marcosAlvarezCalabria/inkendar.app` y se despliegan por Cloudflare Workers con Supabase Cloud; nunca implementes ni diagnostiques una superficie desde el repositorio o proveedor de la otra.
 - El software vive en `marcosAlvarezCalabria/inkendar.app`. Su especificación, arquitectura, contratos, progreso y gates técnicos son autoritativos allí; no mantengas copias activas de ese estado en este repositorio.
 - Para cualquier feature, corrección, refactorización, cambio arquitectónico, API, base de datos o trabajo de pruebas, carga y sigue `$staff-software-engineer` como skill principal.
 - Cuando una tarea afecte al software, trabaja en `inkendar.app` y sigue su `AGENTS.md`, su especificación y su arquitectura vigentes. No traslades código, migraciones ni contratos técnicos a este repositorio.
