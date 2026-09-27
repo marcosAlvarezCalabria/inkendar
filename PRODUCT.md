@@ -20,6 +20,17 @@ _Este documento gobierna el posicionamiento y la promesa pública de la landing.
 
 Las secciones posteriores conservan la visión amplia y capacidades candidatas. Su alcance, estado y orden de entrega quedan subordinados a la [especificación canónica del software](https://github.com/marcosAlvarezCalabria/inkendar.app/blob/main/docs/product/sellable-mvp-spec.md).
 
+## Topología operativa de superficies
+
+Inkendar mantiene dos superficies independientes. No comparten repositorio, build, hosting ni ciclo de despliegue:
+
+| Superficie | Repositorio y fuentes de verdad | Implementación | Despliegue vigente | Límite obligatorio |
+|---|---|---|---|---|
+| Landing comercial | Este repositorio, [`marcosAlvarezCalabria/inkendar`](https://github.com/marcosAlvarezCalabria/inkendar). `PRODUCT.md`, `DESIGN.md`, `docs/design/` y `docs/research/` gobiernan su marketing, diseño y evidencia. | Sitio estático Astro bilingüe para posicionamiento, validación comercial y captación del piloto. | Netlify mediante la integración con GitHub: producción en [`inkendar.netlify.app`](https://inkendar.netlify.app) y deploy previews por Pull Request. El dominio `inkendar.es` continúa pendiente de DNS. | No contiene la PWA, API/BFF, backend, datos de estudios ni el estado técnico del software. |
+| Panel y plataforma Inkendar | Repositorio independiente [`marcosAlvarezCalabria/inkendar.app`](https://github.com/marcosAlvarezCalabria/inkendar.app). Su especificación, arquitectura, contratos y documentos de entrega son autoritativos. | PWA/SSR React Router y TypeScript, API/BFF y monolito modular; Supabase Cloud conserva los datos y el aislamiento multi-tenant. | Cloudflare Workers para la aplicación. Existe staging en `inkendar-staging.calalva82.workers.dev`; producción en `inkendar.calalva82.workers.dev` continúa sin desplegar. | No se implementa ni despliega desde este repositorio. |
+
+Un build o deploy preview de Netlify valida únicamente la landing. Los checks, staging o despliegues de Cloudflare/Supabase validan únicamente el panel. Ninguna de esas evidencias permite declarar disponible la otra superficie.
+
 ## Platform
 
 web
