@@ -1,4 +1,12 @@
 node_modules/
 dist/
 .astro/
+.env.local
+.codex-tmp/
+.worktrees/
+inkendar-access-suspension/
+*.patch
+.tmp-*
+tmp-*.ts
+tmp-*.tsx
 .DS_Store
